@@ -1,0 +1,67 @@
+{/* <button className="statistics" onClick={statistics}>Statistics</button>
+<button className="payment-status" onClick={status}>Status of payment</button>
+<button className="product-info" onClick={product_info}>Product Information</button>
+<button className="clerk-info" onClick={clerk_info}>Clerk Information</button>
+<button className="query-items"onClick={query_items}>Query Items</button> */}
+
+
+{statistics, status, product_info, clerk_info, query_items}
+
+
+<Navigation statistics={<Statistics />} status={<Status />} product_info={<ProductInfo />} clerk_info={<ClerkInfo />}query_items= {<QueryItems />} />
+
+   const[statistics, setStatistics] = useState(false)
+    const[paymentStatus, setPaymentStatus] = useState(false)
+    const[productInfo, setProductInfo] = useState(false)
+    const[clerkInfo, setClerkInfo] = useState(false)
+    const[queryItems, setQueryItems] = useState(false)
+
+
+
+    const handleStatistics = ()=> {
+        setStatistics(current=> !current)
+    }
+    const handlePaymentStatus = ()=> {
+        setPaymentStatus(current=> !current)
+    }
+    const handleProductInfo = ()=> {
+        setProductInfo(current=> !current)
+    }
+    const handleClerkInfo = ()=> {
+        setClerkInfo(current=> !current)
+    }
+    const handleQueryItems = ()=> {
+        setQueryItems(current=> !current)
+    }
+
+import { useState } from "react";
+
+
+    return(
+        <div className="btn-ctn-nvgtn">
+            <button className="statistics" onClick={handleStatistics}>Statistics</button>
+            <div className="statistics">
+            {statistics && <Statistics />}
+            </div>
+            <button className="payment-status" onClick={handlePaymentStatus} >Status of payment</button>
+            <div className="statistics">
+            {paymentStatus && <PaymentStatus />}
+            </div>
+            <button className="product-info" onClick={handleProductInfo}>Product Information</button>
+            <div className="statistics">
+            {productInfo && <ProductInfo />}
+            </div>
+            <button className="clerk-info" onClick={handleClerkInfo}>Clerk Information</button>
+            <div className="statistics">
+            {clerkInfo && <ClerkInfo />}
+            </div>
+            <button className="query-items" onClick={handleQueryItems}>Query Items</button>
+            <div className="statistics">
+            {queryItems && <QueryItems />}
+            </div>
+
+        </div>
+    )
+
+
+

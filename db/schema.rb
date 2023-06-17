@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_16_053157) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_203242) do
   create_table "admins", force: :cascade do |t|
     t.string "name"
     t.integer "merchant_id", null: false
@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_053157) do
     t.integer "item_id", null: false
     t.integer "admin_id", null: false
     t.string "payment_status"
+    t.string "condition_of_item"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_item_admins_on_admin_id"
@@ -31,8 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_053157) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "stock_number_received"
-    t.string "status_of_item"
+    t.integer "stock_number"
+    t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

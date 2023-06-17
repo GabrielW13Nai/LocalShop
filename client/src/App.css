@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+
 }
 
 .App-logo {
@@ -35,4 +37,69 @@
   to {
     transform: rotate(360deg);
   }
+}
+.header-container{
+  background-color: #0f0b17e1;
+  max-height: 7.5vh;
+}
+
+.route{
+  border:transparent;
+  min-height: 90vh;
+  margin-top: -3.4vh;
+  display: block;
+  max-width: 320px;
+  background-color: #0f0b17e1;
+  box-shadow: 0 15px 15px 0 rgba(194, 192, 192, 0.96);
+}
+.dashboard-title{
+  display:block;
+  border: transparent;
+  padding: 15px;
+  min-width: 400px;
+  margin: 2px;
+  margin-right: 200vh;
+  background-color: transparent;
+  color:white;
+  font-size:20px;
+  font-family: cursive
+}
+
+.btn-dashboard{
+  display:block;
+  border: transparent;
+  padding: 15px;
+  max-width: 300px;
+  margin: 3px;
+  text-align: left;
+  background-color: transparent;
+  color:white;
+  font-size:20px;
+  font-family: 'Oswald', sans-serif;
+
+}
+
+.btn-dashboard:hover{
+  color: black;
+  background-color: crimson;
+}
+
+
+
+.routes{
+  margin-top: -82vh;
+}
+
+.dashboard{
+  margin-top: 5vh;
+}
+.navigation-container{
+  margin-bottom: -30vh;
+}
+
+.welcome-message{
+  margin-left: 110vh;
+  margin-top: 200px;
+  color: gray ;
+  font-size: 32px;
 }

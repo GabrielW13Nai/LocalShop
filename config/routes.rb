@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :item_admins
   resources :items
-  resources :admins
+  resources :admins, only:[:index, :show]
   resources :merchants
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
