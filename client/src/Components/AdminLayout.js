@@ -7,6 +7,7 @@ import ProductInfo from './ProductInfo';
 import ClerkInfo from './ClerkInfo';
 import QueryItems from './QueryItems';
 
+
 function AdminLayout(){
     return(
         <>
@@ -22,7 +23,7 @@ function AdminLayout(){
         <Navigation />
         <div className="routes">
         <Switch>
-                <Route exact path='/statistics'><Statistics /></Route>
+                <Route exact path='/statistics'><Statistics  /></Route>
                 <Route exact path='/paymentstatus'><PaymentStatus /></Route>
                 <Route exact path='/productinfo'><ProductInfo /></Route>
                 <Route exact path='/clerkinfo'><ClerkInfo /></Route>

@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  min-height: 100vh;
 
 }
 
@@ -40,17 +39,19 @@
 }
 .header-container{
   background-color: #0f0b17e1;
-  max-height: 7.5vh;
+  height: 8.2vh;
+  box-sizing: border-box;
 }
 
 .route{
   border:transparent;
-  min-height: 90vh;
-  margin-top: -3.4vh;
+  min-height: 100vh;
   display: block;
-  max-width: 320px;
+  width: 400px;
   background-color: #0f0b17e1;
-  box-shadow: 0 15px 15px 0 rgba(194, 192, 192, 0.96);
+  box-shadow: 15px 15px 15px 0 rgba(146, 29, 29, 0.96);
+  margin-bottom: -90px;
+  /* border-radius: 10px; */
 }
 .dashboard-title{
   display:block;
@@ -60,46 +61,48 @@
   margin: 2px;
   margin-right: 200vh;
   background-color: transparent;
-  color:white;
+  color:rgb(223, 11, 11);
   font-size:20px;
-  font-family: cursive
+  font-family: 'Oswald', sans-serif;
+  text-align: left;
 }
 
 .btn-dashboard{
   display:block;
   border: transparent;
   padding: 15px;
-  max-width: 300px;
-  margin: 3px;
+  width: 350px;
+  margin: 10px;
   text-align: left;
   background-color: transparent;
   color:white;
   font-size:20px;
   font-family: 'Oswald', sans-serif;
-
+  text-decoration-style: none;
 }
 
 .btn-dashboard:hover{
   color: black;
   background-color: crimson;
+  transition: 0.2s;
 }
 
-
+a:link{
+  text-decoration-line:none;
+}
 
 .routes{
-  margin-top: -82vh;
+  margin-top: -92vh;
 }
 
 .dashboard{
-  margin-top: 5vh;
-}
-.navigation-container{
-  margin-bottom: -30vh;
+  margin-top:5vh;
+  margin-bottom: 5vh;
 }
 
 .welcome-message{
-  margin-left: 110vh;
-  margin-top: 200px;
+  margin-left: 75vh;
+  margin-top: 150px;
   color: gray ;
-  font-size: 32px;
+  font-size: 24px;
 }
