@@ -13,28 +13,26 @@
 ActiveRecord::Schema[7.0].define(version: 2023_06_16_053157) do
   create_table "admins", force: :cascade do |t|
     t.string "name"
-    t.integer "merchant_id", null: false
+    t.integer "merchant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["merchant_id"], name: "index_admins_on_merchant_id"
   end
 
   create_table "item_admins", force: :cascade do |t|
-    t.integer "item_id", null: false
-    t.integer "admin_id", null: false
-    t.string "payment_status"
+    t.string "name"
+    t.integer "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["admin_id"], name: "index_item_admins_on_admin_id"
-    t.index ["item_id"], name: "index_item_admins_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.integer "quantity"
+    t.integer "destroyed_items"
     t.string "status_of_item"
     t.integer "buying_price"
     t.integer "selling_price"
+    t.integer "item_admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +43,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_053157) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "admins", "merchants"
-  add_foreign_key "item_admins", "admins"
-  add_foreign_key "item_admins", "items"
 end
