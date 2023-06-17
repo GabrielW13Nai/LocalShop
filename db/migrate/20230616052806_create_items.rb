@@ -4,6 +4,8 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.string :name
       t.integer :stock_number_received
       t.string :status_of_item
+      t.integer:buying_price
+      t.integer:selling_price
 
       t.timestamps
     end
