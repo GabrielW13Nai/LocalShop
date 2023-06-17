@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_053157) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "stock_number_received"
+    t.integer "quantity"
     t.string "status_of_item"
     t.integer "buying_price"
     t.integer "selling_price"
