@@ -6,6 +6,9 @@ import PaymentStatus from './PaymentStatus';
 import ProductInfo from './ProductInfo';
 import ClerkInfo from './ClerkInfo';
 import QueryItems from './QueryItems';
+import ClerkAdd from "./ClerkAdd";
+import ClerkEdit from "./ClerkEdit";
+import ClerkDisplay from "./ClerkDisplay";
 
 
 function AdminLayout(){
@@ -19,6 +22,7 @@ function AdminLayout(){
             <span className="welcome-message">Welcome back, admin</span>
             </div>
 
+    <div className="bodycontainer">
         <div className="navigation-container">
         <Navigation />
         <div className="routes">
@@ -28,21 +32,16 @@ function AdminLayout(){
                 <Route exact path='/productinfo'><ProductInfo /></Route>
                 <Route exact path='/clerkinfo'><ClerkInfo /></Route>
                 <Route exact path='/queryitems'><QueryItems /></Route>
+                <Route exact path='/clerkadd'><ClerkAdd  /></Route>
+                <Route exact path='/clerkedit'><ClerkEdit /></Route>
+                <Route exact path='/clerkdisplay'><ClerkDisplay /></Route>
+
             </Switch>
         </div>
         </div>
         </div>
-        <div className="body-container">
-            <div className="col-1 container">
+    </div>
 
-            </div>
-            <div className="col-2 container">
-
-            </div>
-            <div className="col-3 container">
-
-            </div>
-        </div>
     </div>
 
    </>

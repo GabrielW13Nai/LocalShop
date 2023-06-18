@@ -55,6 +55,19 @@ end
 end
 end
 
+60.times do
+
+  1.times do
+    admin= Admin.order('RANDOM()').first
+
+ Clerk.create(
+    name: Faker::Name.name,
+    admin_id: admin.id,
+  )
+
+end
+end
+
 
 
 
