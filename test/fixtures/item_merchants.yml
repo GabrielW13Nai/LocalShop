@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: one
+  merchant: one
+  payment_status: MyString
+
+two:
+  item: two
+  merchant: two
+  payment_status: MyString

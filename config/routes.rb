@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :item_merchants
   resources :item_admins
   resources :items,only: [:index, :create]
   resources :admins
