@@ -47,11 +47,11 @@ function ClerkAdd(){
                     ></input> <br></br>
                      <label htmlFor="Add Clerk" className="textbox-clerk">Admin Name</label>&nbsp;
 
-                        <select className="textbox-clerk"  value={clerk.id} onChange={e=> setAdminId(e.target.value)}>
+                        <select className="textbox-clerk" onChange={e=> setAdminId(e.target.value)}>
                         {admins.map(admin=>{
                             return(
                             <>
-                                <option key={admin.id} value={admin.id}>{admin.name}</option>
+                                <option key={admin.id} defaultValue={admin.id} selected>{admin.name}</option>
                             </>
                             )
                             })}
