@@ -215,11 +215,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
-<<<<<<< HEAD
   faker (~> 3.2)
-=======
-  faker
->>>>>>> 40f7d7607b1dd439323445adc61034856ee234f5
   importmap-rails
   jbuilder
   puma (~> 5.0)
