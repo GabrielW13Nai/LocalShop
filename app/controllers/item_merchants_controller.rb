@@ -1,0 +1,2 @@
+class ItemMerchantsController < ApplicationController
+end
