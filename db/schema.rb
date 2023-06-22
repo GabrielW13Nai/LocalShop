@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_17_131425) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_123028) do
   create_table "admins", force: :cascade do |t|
     t.string "name"
     t.integer "merchant_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
   create_table "clerks", force: :cascade do |t|
@@ -23,22 +24,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_131425) do
     t.integer "admin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["admin_id"], name: "index_clerks_on_admin_id"
   end
 
   create_table "item_admins", force: :cascade do |t|
-    t.integer "item_id", null: false
-    t.integer "admin_id", null: false
-    t.string "payment_status"
-    t.string "condition_of_item"
+    t.string "name"
+    t.integer "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "item_merchants", force: :cascade do |t|
+    t.integer "item_id", null: false
+    t.integer "merchant_id", null: false
+    t.string "payment_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_merchants_on_item_id"
+    t.index ["merchant_id"], name: "index_item_merchants_on_merchant_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "stock_number"
-    t.string "image_url"
+    t.integer "quantity"
+    t.integer "destroyed_items"
+    t.string "status_of_item"
+    t.integer "buying_price"
+    t.integer "selling_price"
+    t.integer "item_admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,10 +61,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_131425) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
-  add_foreign_key "admins", "merchants"
   add_foreign_key "clerks", "admins"
-  add_foreign_key "item_admins", "admins"
-  add_foreign_key "item_admins", "items"
+  add_foreign_key "item_merchants", "items"
+  add_foreign_key "item_merchants", "merchants"
 end

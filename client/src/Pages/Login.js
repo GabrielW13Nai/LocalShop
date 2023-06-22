@@ -9,10 +9,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Reset error messages
     setErrorMessages({});
-
-    // Validate form inputs
     if (!username) {
       setErrorMessages((prevState) => ({ ...prevState, username: 'Username is required.' }));
     }
@@ -26,9 +23,7 @@ const Login = () => {
     // Perform login logic if form inputs are valid
     if (username && password && role) {
       // handle the login logic here, such as making API calls to your Rails backend.
-      console.log('Username:', username);
-      console.log('Password:', password);
-      console.log('Role:', role);
+      
     }
   };
 

@@ -4,23 +4,23 @@ rescue_from ActiveRecord::RecordInvalid, with: :clerk_record_invalid
   wrap_parameters format: []
 
   def index
-    clerk = Clerk.all
-    render json: clerk
+    @clerk = Clerk.all
+    render json: @clerk
   end
 
   def show
-    clerk = Clerk.find_by(id: params[:id])
-    render json: clerk
+    @clerk = Clerk.find_by(id: params[:id])
+    render json: @clerk
   end
 
   def create
-    clerk = Clerk.create!(params_allowed)
-    render json: clerk, status: :created
+    @clerk = Clerk.create!(params_allowed)
+    render json: @clerk, status: :created
   end
 
   def destroy
-    clerk = Clerk.find_by(id: params[:id])
-    clerk.destroy
+    @clerk = Clerk.find_by(id: params[:id])
+    @clerk.destroy
     head :no_content
   end
 

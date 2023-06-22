@@ -6,6 +6,7 @@ function App() {
   return (
     <>
     <div className="App">
+      <h1>Local-Shop</h1>
       <Login />
     </div>
     </>
