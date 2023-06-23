@@ -1,6 +1,8 @@
 .App {
   text-align: center;
-
+  height: 100vh;
+  min-width: 150vh;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -24,6 +26,12 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.logo-title{
+  margin-left: -90em;
+  margin-top: -3.15em;
+  background-color: transparent;
+  border-radius: 10%;
+}
 
 .App-link {
   color: #61dafb;
@@ -38,20 +46,22 @@
   }
 }
 .header-container{
-  background-color: #0f0b17e1;
-  height: 9.8vh;
+  background-color: #722F37;
+  height: 8em;
   box-sizing: border-box;
+  min-width: 150vh;
 }
 
 .route{
   border:transparent;
-  min-height: 150vh;
+  min-height: 100vh;
   display: block;
   width: 400px;
-  background-color: #0f0b17e1;
-  box-shadow: 15px 15px 15px 0 rgba(146, 29, 29, 0.96);
-  margin-bottom: -110px;
+  background-color: white;
+  /* box-shadow: 15px 15px 15px 0 rgba(146, 29, 29, 0.96); */
+  margin-bottom: 25vh;
   /* border-radius: 10px; */
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.5), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.5);
 }
 .dashboard-title{
   display:block;
@@ -61,10 +71,11 @@
   margin: 2px;
   margin-right: 200vh;
   background-color: transparent;
-  color:rgb(223, 11, 11);
+  color:#722F37;
   font-size:20px;
   font-family: 'Oswald', sans-serif;
   text-align: left;
+  font-weight: bold;
 }
 
 .btn-dashboard{
@@ -75,15 +86,15 @@
   margin: 10px;
   text-align: left;
   background-color: transparent;
-  color:white;
+  color:rgb(24, 23, 23);
   font-size:20px;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   text-decoration-style: none;
 }
 
 .btn-dashboard:hover{
-  color: black;
-  background-color: crimson;
+  color: crimson;
   transition: 0.2s;
 }
 
@@ -92,17 +103,16 @@ a:link{
 }
 
 .routes{
-  margin-top: -142vh;
+  margin-top: -122vh;
 }
 
 .dashboard{
-  margin-top:5vh;
   margin-bottom: 5vh;
 }
 
 .welcome-message{
   margin-left: 90vh;
-  margin-top: 150px;
+  margin-top: 5vh;
   color: gray ;
   font-size: 24px;
 }
@@ -117,7 +127,7 @@ a:link{
   text-align: left;
   min-height: 500px;
   min-width: 500px;
-  margin-left: 75vh;
+  margin-left: 50vh;
   margin-bottom: 20vh;
   transition:ease-out;
   align-content: center;
@@ -145,7 +155,7 @@ a:link{
   background-color:rgba(0, 0, 0, 0.705) ;
   color:white;
   font-size:20px;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-decoration-style: none;
   margin-top: 5vh;
 }
@@ -227,33 +237,64 @@ a:link{
   max-height: 20vh;
   min-width: 30vh;
   min-height: 30vh;
-  margin-left: 20vh;
+
+  /* margin-left: 25vh; */
 }
 
 .img-clerk-display{
-  margin-right: 10vh;
+  margin-right: -15vh;
+  margin-left: -5vh;
   border-radius: 50%;
-  margin: 10px;
+  margin-top: 15vh;
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.5), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.5);
+  /* margin: 10px; */
 
 }
 
 .button-clerk{
   display: inline-block;
-  border-radius: 20px;
-  margin: 15px;
+  /* border-radius: 20px; */
+  /* margin: 5vh; */
+  min-width: 350px;
   height: 6vh;
+  margin-left: 7vh;
 }
 
-.text-clerk{
+.text-clerk-edit{
+  display:block;
+  text-align: right;
+  height: 4vh;
+  background-color:transparent ;
+  color:rgb(13, 13, 13);
+  font-size:40px;
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 4px;
+  margin-left: 12vh;
+  /* box-shadow: 5px 5px 5px 0 rgba(26, 25, 25, 0.96); */
+}
+.text-clerk-display{
   display:block;
   text-align: center;
   height: 4vh;
   background-color:transparent ;
   color:rgb(13, 13, 13);
-  font-size:30px;
+  font-size:40px;
   font-family: 'Oswald', sans-serif;
   margin-bottom: 4px;
-  box-shadow: 5px 5px 5px 0 rgba(26, 25, 25, 0.96);
+  margin-left: 10vh;
+  /* box-shadow: 5px 5px 5px 0 rgba(26, 25, 25, 0.96); */
+}
+.text-clerk-add{
+  display:block;
+  text-align: justify;
+  height: 4vh;
+  background-color:transparent ;
+  color:rgb(13, 13, 13);
+  font-size:40px;
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 4px;
+  margin-left: 15vh;
+  /* box-shadow: 5px 5px 5px 0 rgba(26, 25, 25, 0.96); */
 }
 
 .btn-delete{

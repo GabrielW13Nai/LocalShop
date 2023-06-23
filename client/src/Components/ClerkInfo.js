@@ -11,31 +11,34 @@ function ClerkInfo(){
             <div className="clerk-div-3">
                 <div className="button-clerk">
                 <Link to="/clerkadd">
-                    <img src="https://thumbs.dreamstime.com/b/add-create-account-icon-new-profile-male-user-vector-line-152165243.jpg"
+                    <img rounded src="https://static.thenounproject.com/png/438804-200.png"
                     className="img-clerk-display"
                     alt="Not found"
                     width="400"
                     height="400"
-                    /></Link><br></br>
-                <label className="text-clerk">ADD PROFILE</label>
+                    /></Link><br></br> 
+                <label className="text-clerk-add"> ADD PROFILE</label>
                 </div>
                 <div className="button-clerk" >
                     <Link to="/clerkdisplay">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNioCsRsh8JVWwMTDK5pLbv6lqBxPKlhnwfdUggE&s"
+                    <img src="https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG.png"
                     alt="Not found"
+                    className="img-clerk-display"
                     width="400"
                     height="400"
-                    /></Link><br></br>
-                    <label className="text-clerk">VIEW CLERK DETAILS</label>
+                    /></Link><br></br> 
+                    <label className="text-clerk-display">VIEW CLERK DETAILS</label>
                 </div>
                 <div className="button-clerk">
                     <Link to="/clerkedit">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2P-ZCpfCR8M9g5sR6jmL2mojo9O00Vf-HwtGAdx2SL1vLSL2hAimFl738lOJqGNhC3s4&usqp=CAU"
+                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                    <img src="https://cdn.icon-icons.com/icons2/2621/PNG/512/gui_edit_icon_157165.png"
                     alt="Not found"
+                    className="img-clerk-display"
                     width="400"
                     height="400"
-                    /></Link><br></br>
-                    <label className="text-clerk">EDIT CLERK</label>
+                    /></Link><br></br> 
+                    <label className="text-clerk-edit">EDIT CLERK</label>
                 </div>
             </div>
 

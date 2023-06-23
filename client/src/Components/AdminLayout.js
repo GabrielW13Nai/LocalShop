@@ -17,11 +17,17 @@ function AdminLayout(){
 
     <div className="page-container">
         <div className="header-container">
+            <span className="welcome-message">Welcome back, admin</span>
             <div className="page-title">
                 <br></br>
-            <span className="welcome-message">Welcome back, admin</span>
+                <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRei7XXolzHD7EPdOVEC2THV7VgixfGphhR3Q&usqp=CAU"
+                alt="Not found"
+                width="100"
+                height="100"
+                className="logo-title" />
             </div>
-
+        </div>
     <div className="bodycontainer">
         <div className="navigation-container">
         <Navigation />
@@ -37,7 +43,6 @@ function AdminLayout(){
                 <Route exact path='/clerkdisplay'><ClerkDisplay /></Route>
 
             </Switch>
-        </div>
         </div>
         </div>
     </div>
