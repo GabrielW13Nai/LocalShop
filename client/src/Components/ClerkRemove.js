@@ -24,7 +24,7 @@ function ClerkRemove({clerkDelete, setClerkDelete, clerk}){
                 <IconButton
                 className="btn-delete"
                 onClick={()=> handleDelete(clerk.id)}
-                >Delete <DeleteIcon />
+                ><DeleteIcon />
                 </IconButton>
             </div>
             </>
