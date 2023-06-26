@@ -24,7 +24,21 @@ class ApplicationController < ActionController::Base
     end
 
     def permit policy, resource
+      permissions = token_decode['permissions']
+      permissions.include?('*') || permissions.include?(`#{policy}_#{resource}`)
+    end
 
+    def allowed
+      policy = case request.method
+      when "POST"
+        "add"
+      when "PATCH" || "PUT"
+        "update"
+      when "DESTROY"
+        "delete"
+      else
+        "view"
+      end
     end
 
     private

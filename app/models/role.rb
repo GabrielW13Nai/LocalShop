@@ -2,7 +2,7 @@ class Role < ApplicationRecord
   has_many :role_permissions
   has_many :permissions,through: :role_permissions
 
-  belongs_to :user
+  has_many :users
 
-  validates :name, uniqueness: true
+  validates :name, presence: true
 end

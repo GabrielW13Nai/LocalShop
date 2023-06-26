@@ -2,35 +2,37 @@
 
 puts "seeding......."
 
+
+
 begin
-  merchant_role = Role.create!(name: "Super User", description: "This is the super user of the system")
+  super_user_role = Role.create!(name: "Super User", description: "This is the super user of the system")
   admin_role = Role.create!(name: "Admin", description: "This is the admin of the system")
 
-all_permissions = Permission.create(name: "all", alias: "*")
+all_permissions = Permission.create!(name: "all", alias: "*")
 
 create_admin_permissions = Permission.create!(name: "Create admin", alias: "create_admin")
 update_admin_permissions = Permission.create!(name: "Update admin", alias: "update_admin")
 delete_admin_permissions = Permission.create!(name: "Delete admin", alias: "delete_admin")
 
-create_clerk_permissions = Permission.create!(name: "Create clerk", alias: "create_clerk")
-update_clerk_permissions = Permission.create!(name: "Update clerk", alias: "update_clerk")
-delete_clerk_permissions = Permission.create!(name: "Delete clerk", alias: "delete_clerk")
+create_clerk_permissions = Permission.create(name: "Create clerk", alias: "create_clerk")
+update_clerk_permissions = Permission.create(name: "Update clerk", alias: "update_clerk")
+delete_clerk_permissions = Permission.create(name: "Delete clerk", alias: "delete_clerk")
 
 
 rescue
 
   puts "skipped"
-merchant_role = Role.find_by!(name: "Super User")
-admin_role = Role.find_by!(name: "Admin")
+super_user_role = Role.find_by(name:"Super User")
+admin_role = Role.find_by(name:"Admin")
 
-all_permissions =  Permission.find_by!(alias: "*")
-create_admin_permissions = Permission.find_by!(alias: "create_admin")
-update_admin_permissions = Permission.find_by!(alias: "update_admin")
-delete_admin_permissions = Permission.find_by!(alias: "delete_admin")
+all_permissions =  Permission.find_by(alias:"*")
+create_admin_permissions = Permission.find_by(alias:"create_admin")
+update_admin_permissions = Permission.find_by(alias:"update_admin")
+delete_admin_permissions = Permission.find_by(alias:"delete_admin")
 
-create_clerk_permissions = Permission.find_by!(alias: "create_clerk")
-update_clerk_permissions = Permission.find_by!(alias: "update_clerk")
-delete_clerk_permissions = Permission.find_by!( alias: "delete_clerk")
+create_clerk_permissions = Permission.find_by(alias:"create_clerk")
+update_clerk_permissions = Permission.find_by(alias:"update_clerk")
+delete_clerk_permissions = Permission.find_by(alias:"delete_clerk")
 
 end
 
@@ -68,12 +70,13 @@ Item.create(name:"Baby_Cot",quantity:22,destroyed_items:5,status_of_item:"paid",
 
 
 begin
-  super_admin = User.create!(name: "Mary", email: "mary@superusercom", password: 123456, phone_number: 254732422333, user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMGEmJg0U1cedvxLtkdEpCxVJRxLDsBaiHA&usqp=CAU", user_id: merchant_role.id )
+  super_admin = User.create!(name: "Mary", email: "mary@superusercom", password: 123456, phone_number: 254732422333, user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMGEmJg0U1cedvxLtkdEpCxVJRxLDsBaiHA&usqp=CAU", user_id: super_user_role.id )
 rescue
   puts "Super admin already created"
 end
 
-end
+  
+
 
 puts "seeded"
 
