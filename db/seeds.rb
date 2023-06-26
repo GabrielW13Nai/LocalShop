@@ -18,7 +18,7 @@ rescue
 
 end
 
-user1 = User.create(name: "James", email: "james@superusercom", password: "123456", phone_number: 254732422333, user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMGEmJg0U1cedvxLtkdEpCxVJRxLDsBaiHA&usqp=CAU", role_id: admin_role.id )
+user1 = User.create(name: "James", email: "james@adminuser.com", password: "123456", phone_number: 254732422333, user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMGEmJg0U1cedvxLtkdEpCxVJRxLDsBaiHA&usqp=CAU", role_id: admin_role.id )
 
 10.times {User.create(
   name: Faker::Name.name,
@@ -75,7 +75,7 @@ RolePermission.create!(role_id: admin_role.id, permission_id: delete_admin_permi
 
 
 begin
-  super_admin = User.create!(name: "Mary", email: "mary@superusercom", password: "123456", phone_number: 254732422333, user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMGEmJg0U1cedvxLtkdEpCxVJRxLDsBaiHA&usqp=CAU", role_id: super_user_role.id )
+  super_admin = User.create!(name: "Mary", email: "mary@superuser.com", password: "123456", phone_number: 254732422333, user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMGEmJg0U1cedvxLtkdEpCxVJRxLDsBaiHA&usqp=CAU", role_id: super_user_role.id )
 rescue
   puts "Super admin already created"
     super_admin = User.find_by!(name: "Mary")
