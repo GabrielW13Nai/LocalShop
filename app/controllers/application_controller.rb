@@ -39,6 +39,12 @@ class ApplicationController < ActionController::Base
       else
         "view"
       end
+
+      path = request.path.split("/")
+      resource = path[1]
+      paramsPath = path[2]
+
+      raise ActionController::RoutingError.new("Forbidden") unless allowed(policy, policy && paramsPath == "view"?)
     end
 
     private
