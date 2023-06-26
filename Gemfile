@@ -1,11 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.6"
-
-gem 'bcrypt', '~> 3.1.7'
-
-gem 'jwt'
+ruby "3.1.4"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
@@ -76,3 +72,7 @@ group :test do
 end
 
 gem "faker", "~> 3.2"
+
+gem "jwt", "~> 2.7"
+
+gem "bcrypt", "~> 3.1"

@@ -4,8 +4,13 @@ import { Link } from "react-router-dom";
 
 function ClerkAdd(){
     const[name, setName]= useState(" ")
-    const[admin_id, setAdminId]= useState(" ")
+    const options = {
+        value: 1,
+      }
+    const[admin_id, setAdminId]= useState(options.value)
     const[admins, setAdmin]= useState([])
+
+
 
     const clerk = {
         name,
@@ -18,7 +23,9 @@ function ClerkAdd(){
         .then((clerk=> setAdmin(clerk)))
     }, [])
 
-    function handleAdd(e){
+
+
+    function handleAdd(){
         const choice = window.confirm("Are you sure you want to add this clerk to the system?")
         if(choice){
         // e.preventDefault();
@@ -47,11 +54,11 @@ function ClerkAdd(){
                     ></input> <br></br>
                      <label htmlFor="Add Clerk" className="textbox-clerk">Admin Name</label>&nbsp;
 
-                        <select className="textbox-clerk"  value={clerk.id} onChange={e=> setAdminId(e.target.value)}>
+                        <select className="textbox-clerk" value={clerk.admin_id} onChange={e=> setAdminId(e.target.value)}>
                         {admins.map(admin=>{
                             return(
                             <>
-                                <option key={admin.id} value={admin.id}>{admin.name}</option>
+                                <option key={admin.id} defaultValue={admin.id} selected>{admin.name}</option>
                             </>
                             )
                             })}

@@ -32,8 +32,8 @@ function ClerkAdd(){
                     <img
                     src = "https://img.freepik.com/free-icon/user_318-286823.jpg"
                     alt = "not found"
-                    width='100'
-                    height='100'
+                    width='200'
+                    height='200'
                     />
                 </div>
                 <div>

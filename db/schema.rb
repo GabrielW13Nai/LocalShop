@@ -10,61 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_123028) do
-  create_table "admins", force: :cascade do |t|
-    t.string "name"
-    t.integer "merchant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-  end
-
-  create_table "clerks", force: :cascade do |t|
-    t.string "name"
-    t.integer "admin_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.index ["admin_id"], name: "index_clerks_on_admin_id"
-  end
-
-  create_table "item_admins", force: :cascade do |t|
-    t.string "name"
-    t.integer "admin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "item_merchants", force: :cascade do |t|
-    t.integer "item_id", null: false
-    t.integer "merchant_id", null: false
-    t.string "payment_status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_item_merchants_on_item_id"
-    t.index ["merchant_id"], name: "index_item_merchants_on_merchant_id"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2023_06_25_185639) do
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "quantity"
+    t.string "quantity"
     t.integer "destroyed_items"
     t.string "status_of_item"
     t.integer "buying_price"
     t.integer "selling_price"
-    t.integer "item_admin_id"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "merchants", force: :cascade do |t|
+  create_table "permissions", force: :cascade do |t|
     t.string "name"
+    t.string "alias"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
   end
 
-  add_foreign_key "clerks", "admins"
-  add_foreign_key "item_merchants", "items"
-  add_foreign_key "item_merchants", "merchants"
+  create_table "role_permissions", force: :cascade do |t|
+    t.integer "role_id", null: false
+    t.integer "permission_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["permission_id"], name: "index_role_permissions_on_permission_id"
+    t.index ["role_id"], name: "index_role_permissions_on_role_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.integer "phone_number"
+    t.string "user_image"
+    t.integer "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_users_on_role_id"
+  end
+
+  add_foreign_key "items", "users"
+  add_foreign_key "role_permissions", "permissions"
+  add_foreign_key "role_permissions", "roles"
+  add_foreign_key "users", "roles"
 end
