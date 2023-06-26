@@ -32,9 +32,9 @@ user1 = User.create(name: "James", email: "james@superusercom", password: "12345
 
 begin
   all_permissions = Permission.create!(name: "all", alias: "*")
-  create_admin_permissions = Permission.create!(name: "Create admin", alias: "create_admin")
-  update_admin_permissions = Permission.create!(name: "Update admin", alias: "update_admin")
-  delete_admin_permissions = Permission.create!(name: "Delete admin", alias: "delete_admin")
+  create_admin_permissions = Permission.create!(name: "Create clerk", alias: "create_clerk")
+  update_admin_permissions = Permission.create!(name: "Update clerk", alias: "update_clerk")
+  delete_admin_permissions = Permission.create!(name: "Delete clerk", alias: "delete_clerk")
 
   create_clerk_permissions = Permission.create(name: "Create item", alias: "create_item")
   update_clerk_permissions = Permission.create(name: "Update item", alias: "update_item")
@@ -42,9 +42,9 @@ begin
 rescue
   puts "Permission existing"
   all_permissions =  Permission.find_by!(alias: "*")
-  create_admin_permissions = Permission.find_by!(alias: "create_admin")
-  update_admin_permissions = Permission.find_by!(alias: "update_admin")
-  delete_admin_permissions = Permission.find_by!(alias: "delete_admin")
+  create_admin_permissions = Permission.find_by!(alias: "create_clerk")
+  update_admin_permissions = Permission.find_by!(alias: "update_clerk")
+  delete_admin_permissions = Permission.find_by!(alias: "delete_clerk")
 
   create_clerk_permissions = Permission.find_by(alias: "create_item")
   update_clerk_permissions = Permission.find_by(alias: "update_item")
