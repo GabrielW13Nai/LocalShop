@@ -1,0 +1,2 @@
+class RolePermissionsController < ApplicationController
+end
