@@ -1,13 +1,18 @@
-class ApplicationController < ActionController::API
-  before_action :authorized, only: [:index, :show, :create, :update, :destroy]
+class ApplicationController < ActionController::Base
 
-  def encode_token(payload)
-    JWT.encode(payload, 'secret') 
-  end
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-  def auth_header
-    request.headers['Authorization']
-  end
+    def access_denied invalid
+      render json: {errors: "Access denied"}, status: :forbidden
+    end
+
+    def token_verification
+      if !request_headers['Authorization']
+        render json {error: "Invalid token"}
+      else
+        render render json {error: "Invalid token"} unless token_decode
+      end
+    end
 
   def decoded_token
     if auth_header
@@ -18,32 +23,34 @@ class ApplicationController < ActionController::API
         nil
       end
     end
-  end
+
+    def permit policy, resource
+      permissions = token_decode['permissions']
+      permissions.include?('*') || permissions.include?(`#{policy}_#{resource}`)
+    end
 
 
 
+      path = request.path.split("/")
+      resource = path[1]
+      paramsPath = path[2]
+
+      raise ActionController::RoutingError.new("Forbidden") unless allowed(policy,  paramsPath && policy == "view"? resource.singliarize : resource)
   def current_user
     return @current_user if @current_user
-  
+
     if decoded_token
       user_id = decoded_token[0]['user_id']
       @current_user = User.find_by(id: user_id)
     end
-  
-    @current_user 
+
+    @current_user
   end
 
-  def authorized_role(role)
-    render json: { error: 'Unauthorized' }, status: :unauthorized unless current_user && current_user.role == role
-  end
-  
+    def render_unprocessable_entity_response(exception)
+      render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
+    end
 
-  def authorized
-    render json: { error: 'Unauthorized' }, status: :unauthorized unless current_user
-  end
 
-  def logged_in?
-    !!current_user
-  end
 
 end

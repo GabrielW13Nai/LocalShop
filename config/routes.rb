@@ -33,6 +33,12 @@ Rails.application.routes.draw do
   namespace :clerk do
     # Dashboard route
     get '/dashboard', to: 'dashboard#index'
+  resources :users, only: [:index, :show, :create, :update, :destroy]
+  resources :permissions, only: [:index, :show]
+  resources :roles, only: [:index, :show, :create, :update, :destroy]
+  resources :role_permissions
+  resources :items,only: [:index, :create]
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Clerk-specific routes for CRUD operations on items
     resources :items
