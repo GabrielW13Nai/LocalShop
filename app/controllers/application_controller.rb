@@ -10,19 +10,19 @@ class ApplicationController < ActionController::Base
     end
 
     def token_verification
-      if !request_headers['Authorization']
-        render json {error: "Invalid token"}
+      if !request.headers['Authorization']
+        render json: {error: "Invalid token"}
       else
-        render render json {error: "Invalid token"} unless token_decode
+        render json: {error: "Invalid token"} unless token_decode
       end
     end
 
     def token_decode
       token = request.headers['Authorization'].split(" ")[1]
       begin
-        JWT:decode(token, Rails.configuration.jwt[:secret])[0]
-      rescue
-        JWT.DecodeError
+        JWT.decode(token, Rails.configuration.jwt[:secret])[0]
+      rescue JWT.DecodeError
+        nil
       end
     end
 
