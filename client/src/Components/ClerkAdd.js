@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 
 function ClerkAdd(){
     const[name, setName]= useState(" ")
+    const[email, setEmail]= useState(" ")
+    const[password, setPassword]= useState(" ")
+    const[phone_number, setPhone]= useState(" ")
+    const[user_image, setImage]= useState(" ")
     const[role_id, setId]= useState(" ")
     // const options = {
     //     value: 1,
@@ -25,14 +29,12 @@ function ClerkAdd(){
     useEffect(()=> {
         fetch('/roles')
         .then(res=> res.json())
-        .then((user)=> {setUser(user);
-        users.map(user=>{
-            if(user.name.toLowerCase() === 'clerk'){
-                setId(user.id);
-            }
-            end
-    })
-    }, [])})
+        .then((user)=> {setUser(user);  
+            })
+    }
+    , [])
+
+    
 
 
 
@@ -45,8 +47,13 @@ function ClerkAdd(){
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify(clerk)})
         .then(res=> res.json())
-        .then(clerk=> console.log(clerk)
-
+        .then(clerk=>{
+        console.log(clerk);
+        users.map(user=>{
+            if(user.name.toLowerCase() === 'clerk'){
+                setId(user.id)
+            }
+            return role_id})}
         )
         alert('Clerk has been added successfully')
     }}
@@ -82,19 +89,19 @@ function ClerkAdd(){
                     <label htmlFor="Add Clerk" className="textbox-clerk">Phone Number</label> &nbsp;&nbsp;
                     <input
                     type="text"
-                    onChange={e=> setPassword(e.target.value)}
+                    onChange={e=> setPhone(e.target.value)}
                     className="textbox-clerk"
                     value={clerk.phone_number}
                     ></input> <br></br>
                     <label htmlFor="Add Clerk" className="textbox-clerk">Insert Image here</label> &nbsp;&nbsp;
                     <input
                     type="text"
-                    onChange={e=> setPassword(e.target.value)}
+                    onChange={e=> setImage(e.target.value)}
                     className="textbox-clerk"
-                    value={clerk.phone_number}
+                    value={clerk.user_image}
                     ></input> <br></br>
 
-                     <label htmlFor="Add Clerk" className="textbox-clerk">Admin Name</label>&nbsp;
+                     {/* <label htmlFor="Add Clerk" className="textbox-clerk">Admin Name</label>&nbsp; */}
 
                         {/* <select className="textbox-clerk" value={clerk.admin_id} onChange={e=> setAdminId(e.target.value)}>
                         {user.map(admin=>{
