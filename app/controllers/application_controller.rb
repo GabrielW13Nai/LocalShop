@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
 
+  before_action :token_verification
+  before_action :allowed
+
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def access_denied invalid
@@ -44,7 +47,7 @@ class ApplicationController < ActionController::Base
       resource = path[1]
       paramsPath = path[2]
 
-      raise ActionController::RoutingError.new("Forbidden") unless allowed(policy, policy && paramsPath == "view"?)
+      raise ActionController::RoutingError.new("Forbidden") unless allowed(policy,  paramsPath && policy == "view"? resource.singliarize : resource)
     end
 
     private
