@@ -2,52 +2,62 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ClerkRemove from './ClerkRemove';
 
-function ClerkAdd(){
-    const[clerks, setClerk]= useState([])
-    const[clerkDelete, setClerkDelete]= useState([])
-
+function ClerkDisplay(){
+    const[users, setUser]= useState([])
+    // const[clerks, setClerk]= useState([])
 
     useEffect(()=> {
-        fetch('/clerks')
+        fetch('/users')
         .then(res=> res.json())
-        .then((clerk=> {
-            setClerk(clerk);
-            setClerkDelete(clerk);}
-        ))
-    }, [])
+        .then((user)=> {setUser(user);
+            })
+    }
+    , [])
 
 
+
+
+    // useEffect(()=> {
+    //     users.filter(user=>{
+    //         if(user.role_id!==id) return null;
+
+    //         return(
+    //             setClerk(user));
+    //      })}
+
+    // , [users, id])
 
     return(
         <>
         <div className="clerk-2">
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
         </div>
-        {clerks.map(clerk=>{
+        {users.map((clerk, id)=>{
+            if(clerk.role.name !== "Clerk") return null;
             return(
             <>
-            <div className="clerks-flex-display">
+            <div className="clerks-flex-display" key={id}>
             <section className="display-clerk">
                 <div>
                     <img
-                    src = "https://img.freepik.com/free-icon/user_318-286823.jpg"
+                    src = {clerk.user_image}
                     alt = "not found"
                     width='200'
                     height='200'
                     />
                 </div>
                 <div>
-                    <label>Clerk id: </label>
-                    <div>{clerk.id}</div> <br></br>
+                    <label>Clerk Id: </label>
+                    <div >{clerk.id}</div> <br></br>
                     <label>Clerk name: </label>
-                    <div>{clerk.name}</div> <br></br>
+                    <div >{clerk.name}</div> <br></br>
                 </div>
-                <ClerkRemove clerkDelete={clerkDelete} setClerkDelete={setClerkDelete} clerk={clerk} />
+                <ClerkRemove clerkDelete={users} setClerkDelete={setUser} clerk={clerk} />
             </section>
 
             </div>
-            </>
-            )})}
+            </>)
+            })}
 
 
 
@@ -55,4 +65,4 @@ function ClerkAdd(){
     )
 }
 
-export default ClerkAdd
+export default ClerkDisplay
