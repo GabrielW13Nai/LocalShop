@@ -16,7 +16,7 @@ function ClerkInfo(){
                     alt="Not found"
                     width="400"
                     height="400"
-                    /></Link><br></br> 
+                    /></Link><br></br>
                 <label className="text-clerk-add"> ADD PROFILE</label>
                 </div>
                 <div className="button-clerk" >
@@ -26,7 +26,7 @@ function ClerkInfo(){
                     className="img-clerk-display"
                     width="400"
                     height="400"
-                    /></Link><br></br> 
+                    /></Link><br></br>
                     <label className="text-clerk-display">VIEW CLERK DETAILS</label>
                 </div>
                 <div className="button-clerk">
@@ -37,7 +37,7 @@ function ClerkInfo(){
                     className="img-clerk-display"
                     width="400"
                     height="400"
-                    /></Link><br></br> 
+                    /></Link><br></br>
                     <label className="text-clerk-edit">EDIT CLERK</label>
                 </div>
             </div>
