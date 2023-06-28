@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class AuthController < ApplicationController
   def login
     user = User.find_by(email: params_login[:email])
     if user&.authenticate(params_login[:password])
@@ -14,19 +14,6 @@ class UsersController < ApplicationController
 
       render json: {token: token}
     else
-      render json {error: "Invalid credentials entered"}
+      render json: {error: "Invalid credentials entered"}
     end
-  end
-
-
-  private
-
-  def params_create
-    params.permit(:name, :email, :password, :phone_number, :user_image, :role_id)
-  end
-
-  def render_unprocessable_user(invalid)
-    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-  end
-
 end

@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
 
+  # before_action :token_verification
+  # before_action :allowed
+
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def access_denied invalid

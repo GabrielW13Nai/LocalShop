@@ -149,7 +149,7 @@ a:link{
   text-align: left;
   min-height: 500px;
   min-width: 500px;
-  margin-left: 50vh;
+  margin-left: 40vh;
   margin-bottom: 20vh;
   transition:ease-out;
   align-content: center;
@@ -157,13 +157,15 @@ a:link{
 }
 
 .textbox-clerk{
-  min-width: 250px;
+  min-width: 400px;
   min-height: 50px;
   text-align: left;
   font-family: 'Oswald', sans-serif;
-  margin: 1vh;
-  font-size:20px;
-
+  /* margin-right:0.75vh; */
+  margin-bottom: 2vh;
+  font-size:24px;
+  display: inline-block;
+  border-radius: 5px;
 }
 
 .btn-clerk{
@@ -248,10 +250,10 @@ a:link{
 
 .clerks-flex-display{
   display: inline-block;
-  max-width: 16vh;
+  max-width: 20vh;
   min-height: 5vh;
   margin-left: 100vh;
-  margin: 1vh;
+  margin: 2.5vh;
 }
 
 .clerk-div-3{
