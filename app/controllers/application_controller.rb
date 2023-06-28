@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   # before_action :allowed
 
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    #rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def access_denied invalid
       render json: {errors: "Access denied"}, status: :forbidden
@@ -55,6 +56,7 @@ class ApplicationController < ActionController::Base
     def render_unprocessable_entity_response(exception)
       render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
     end
+
 
 
 
