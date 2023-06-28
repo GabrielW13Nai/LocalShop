@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :roles
+  belongs_to :role
   has_many :permissions
 
   has_secure_password
