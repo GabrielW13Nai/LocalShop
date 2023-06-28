@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
 
     def token_verification
       if !request_headers['Authorization']
-        render json {error: "Invalid token"}
+        render json: {error: "Invalid token"}
       else
-        render render json {error: "Invalid token"} unless token_decode
+        render json: {error: "Invalid token"} unless token_decode
       end
     end
 
@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
       resource = path[1]
       paramsPath = path[2]
 
-      raise ActionController::RoutingError.new("Forbidden") unless allowed(policy, policy && paramsPath == "view"?)
+      raise ActionController::RoutingError.new("Forbidden") unless allowed(policy, policy && paramsPath == "view"? resource.singularize : resource)
     end
 
     private
