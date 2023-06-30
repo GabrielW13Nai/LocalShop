@@ -9,4 +9,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, presence: true
 
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: {in: 4..20, message: "Password must be between 4 and 20 characters"}
 end

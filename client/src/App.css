@@ -327,6 +327,17 @@ a:link{
   color:rgb(10, 1, 1);
   border: none;
 }
+
+.input{
+  margin: 8px;
+  border: 0;
+  background-color: transparent;
+}
+
+.input:hover{
+  background-color: #ffcd00;
+  cursor: pointer;
+}
 /* .title{
   font-size: 40px;
   color: #282c34;
