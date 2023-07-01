@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+ #before_action :token_verification
+  #before_action :allowed
 
   # before_action :token_verification
   # before_action :allowed

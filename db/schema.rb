@@ -13,11 +13,12 @@
 ActiveRecord::Schema[7.0].define(version: 2023_07_03_081231) do
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.string "quantity"
+    t.integer "quantity"
     t.integer "destroyed_items"
     t.string "status_of_item"
     t.integer "buying_price"
     t.integer "selling_price"
+    t.string "image"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
