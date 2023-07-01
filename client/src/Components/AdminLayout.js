@@ -11,6 +11,7 @@ import ClerkEdit from "./ClerkEdit";
 import ClerkDisplay from "./ClerkDisplay";
 import AddProduct from "./AddProduct";
 import ViewProduct from "./ViewProduct";
+import ItemCollection from "./ItemCollection";
 
 
 function AdminLayout(){
@@ -59,6 +60,7 @@ function AdminLayout(){
                 <Route exact path='/clerkdisplay'><ClerkDisplay /></Route>
                 <Route exact path='/viewproducts'><ViewProduct /></Route>
                 <Route exact path='/addproducts'><AddProduct /></Route>
+                <Route exact path='/itemcollection'><ItemCollection /></Route>
 
             </Switch>
         </div>
