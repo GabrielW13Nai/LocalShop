@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def create
-        @user = user.create(user_params)
+        @user = User.create(user_params)
         if @user.valid?
             token = encode_token({user_id: @user.id})
             render json: {user: @user, token: token}, status: :ok
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.permit(:name, :email, :password)
+        params.require(:user).permit(:name, :email, :password)
     end
 
 end
