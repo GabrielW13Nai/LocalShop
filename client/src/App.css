@@ -1,8 +1,8 @@
 .App {
   text-align: center;
-  /* height: 100vh; */
   min-width: 150vh;
-  overflow: hidden;
+  /* height: 150vh;
+  overflow: hidden; */
 }
 
 .App-logo {
@@ -698,4 +698,11 @@ input[type=number], select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.collection {
+  width: 10%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
 }

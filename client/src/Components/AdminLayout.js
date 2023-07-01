@@ -13,6 +13,7 @@ import Paid from './Paid';
 import Report from './Report';
 import AddProduct from "./AddProduct";
 import ViewProduct from "./ViewProduct";
+import ItemCollection from "./ItemCollection";
 
 
 function AdminLayout(){
@@ -64,6 +65,7 @@ function AdminLayout(){
 
                 <Route exact path='/viewproducts'><ViewProduct /></Route>
                 <Route exact path='/addproducts'><AddProduct /></Route>
+                <Route exact path='/itemcollection'><ItemCollection /></Route>
 
             </Switch>
         </div>
