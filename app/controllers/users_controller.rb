@@ -1,28 +1,15 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create, :login]
-
     def create
         user_id = current_user.id
         user_role = current_user_role(user_id)
       
         case user_role
         when 'super_admin'
-          @user = User.create(user_params)
-          if @user.valid?
-            token = encode_token({ user_id: @user.id })
-            render json: { user: UserSerializer.new(@user), jwt: token }, status: :created
-          else
-            render json: { error: 'Failed to create user', errors: @user.errors.full_messages }, status: :unprocessable_entity
-          end
+          create_user
         when 'admin'
           if user_params[:role] == 'clerk'
-            @user = User.create(user_params)
-            if @user.valid?
-              token = encode_token({ user_id: @user.id })
-              render json: { user: UserSerializer.new(@user), jwt: token }, status: :created
-            else
-              render json: { error: 'Failed to create user', errors: @user.errors.full_messages }, status: :unprocessable_entity
-            end
+            create_user
           else
             render json: { error: "You are not authorized to create this role" }, status: :unauthorized
           end
@@ -31,10 +18,7 @@ class UsersController < ApplicationController
         else
           render json: { error: "You are not authorized!" }, status: :unauthorized
         end
-    end
-      
-
-
+  end
       def login
         @user = User.find_by(name: params[:name])
       
@@ -58,17 +42,27 @@ class UsersController < ApplicationController
       end
       
 
-        def send_activation_email
-            user = User.find(params[:admin_id])
-            if user.role == 'admin'
-            send_activation_email_to_admin(user)
-            render json: { message: 'Activation email sent successfully' }, status: :ok
-            else
-            render json: { error: 'User is not an admin' }, status: :unprocessable_entity
-            end
-        end
+      def send_activation_email
+                user = User.find(params[:admin_id])
+                if user.role == 'admin'
+                send_activation_email_to_admin(user)
+                render json: { message: 'Activation email sent successfully' }, status: :ok
+                else
+                render json: { error: 'User is not an admin' }, status: :unprocessable_entity
+                end
+      end
   
   private
+
+  def create_user
+    @user = User.create(user_params)
+    if @user.valid?
+      token = encode_token({ user_id: @user.id })
+      render json: { user: UserSerializer.new(@user), jwt: token }, status: :created
+    else
+      render json: { error: 'Failed to create user', errors: @user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end 
   
   def send_activation_email_to_admin(admin)
     UserMailer.with(user: admin).account_activation.deliver_now
