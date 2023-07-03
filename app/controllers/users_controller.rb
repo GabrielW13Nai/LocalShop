@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create, :login]
 
     def create
-        user_role = current_user_role
+        user_role = current_user_role()
         if user_role != 'super_admin'
             render json: { error: "You are not authorized!"}
         else
