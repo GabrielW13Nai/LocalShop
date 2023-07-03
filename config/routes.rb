@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :users, only: [:create]
+
   resources :items, except: [:new, :edit] do
     collection do
       post :upload

@@ -20,7 +20,7 @@ class ApplicationController < ActionController::API
     end
   end
 
-  end
+
 
   def current_user
     return @current_user if @current_user
@@ -29,6 +29,8 @@ class ApplicationController < ActionController::API
       user_id = decoded_token[0]['user_id']
       @current_user = User.find_by(id: user_id)
     end
+  
+    @current_user 
   end
 
   def authorized_role(role)

@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:create, :login]
     def create
-        user_id = current_user.id
-        user_role = current_user_role(user_id)
+        user_role = current_user
       
         case user_role
         when 'super_admin'
