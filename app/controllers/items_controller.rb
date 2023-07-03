@@ -2,23 +2,20 @@ class ItemsController < ApplicationController
     before_action :set_book, only: [:show, :update, :destroy]
     before_action :authorize_user, only: [:upload]
   
-    # GET /books
+    # GET /items
     def index
-      page = params[:page].to_i || 1
-      limit = params[:limit].to_i || 6
-  
-      offset = (page - 1) * limit
-  
-      @books = Item.offset(offset).limit(limit)
-      render json: @books
+     items = Item.all
+     render json: items
     end
   
-    # GET /books/:id
+    # GET /items/:id
     def show
-      render json: @book
+        user_role = current_user_role()
+        item = Item.find_by!(id: params[:id]) 
+        render json: item, status: :ok
     end
   
-    # POST /books
+    # POST /items
     def create
        @item = Item.new(item_params)
       if @item.save
@@ -61,7 +58,7 @@ class ItemsController < ApplicationController
     end
   
     def item_params
-      params.require(:item).permit(:title, :author, :description, :image_url)
+      params.require(:item).permit(:name, :quantity, :destroyed_items, :status_of_item, :buying_price, :selling_price, :user_id)
     end
   
     def authorize_user

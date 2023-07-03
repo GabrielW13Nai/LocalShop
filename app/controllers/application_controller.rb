@@ -27,6 +27,11 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def current_user_role
+    user_id = current_user()
+    user_role = user.role
+  end
+
   def logged_in?
     !!current_user
   end
