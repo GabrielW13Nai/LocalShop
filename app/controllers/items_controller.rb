@@ -11,8 +11,12 @@ class ItemsController < ApplicationController
     # GET /items/:id
     def show
         user_role = current_user_role()
-        item = Item.find_by!(id: params[:id]) 
-        render json: item, status: :ok
+        if user_role != 'user'
+            render json: { error: "you are not authorized" }, status: :unauthorized
+            else
+            item = Item.find_by!(id: params[:id]) 
+            render json: item, status: :ok
+        end
     end
   
     # POST /items
