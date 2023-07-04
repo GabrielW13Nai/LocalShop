@@ -337,6 +337,10 @@ a:link{
   background-color: #ffcd00;
   cursor: pointer;
 }
+
+.tableclerks{
+  margin-left: 1000vh;
+}
 /* .title{
   font-size: 40px;
   color: #282c34;
