@@ -10,7 +10,7 @@ function ItemCollection() {
 
   return (
     <div className="collection">
-      <img src={display.image} alt="Image" />
+      <img className = "display"src={display.image} alt="Image" />
       <div>
         <p>Name: {display.name}</p>
         <p>Quantity: {display.quantity}</p>
