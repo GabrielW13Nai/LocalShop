@@ -233,7 +233,7 @@ a:link{
 
 .display-clerk{
   border: 0.5px black solid;
-  padding: 0.5px;
+  padding: 0.75px;
   min-height: 25vh;
   margin-left: 35vh;
   min-width: 15vh;
@@ -253,6 +253,7 @@ a:link{
   min-height: 5vh;
   margin-left: 100vh;
   margin: 2.5vh;
+
 }
 
 .clerk-div-3{
@@ -272,6 +273,11 @@ a:link{
   box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.5), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.5);
   /* margin: 10px; */
 
+}
+
+.display-clerk{
+  padding: 7px;
+  align-items: center;
 }
 
 .button-clerk{
@@ -339,8 +345,115 @@ a:link{
 }
 
 .tableclerks{
-  margin-left: 1000vh;
+  margin-left: 50vh;
+  font-size: 20px;
+  font-family:'Oswald', sans-serif;
+  margin-top: 5em;
+  display: block;
+  overflow: hidden;
+  table-layout: auto;
+  border-collapse: collapse;
+  box-shadow: 0 10px 10px  #ccc;
+  border-radius: 10px;
+  width: 60em;
+  max-width: 80%;
+  white-space: nowrap;
+  overflow-x: auto;
 }
+.tableclerks thead {
+  font-size: 22px;
+  font-weight: bold;
+  background-color:  #ccc;
+  color: #222;
+
+}
+
+.tableclerks th, .tableclerks td {
+  padding: 0.8rem;
+}
+
+ .tableclerks td {
+  border-top: 0.5px solid #ddd;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+}
+
+.tableclerks tbody tr:hover{
+  background-color: #eee;
+}
+
+.clerk-img-tbl{
+  width: 100%;
+}
+
+.actions{
+  justify-content: space-around;
+  display: flex;
+  cursor: pointer;
+}
+
+.trash{
+  color: #e10d05 ;
+}
+.modal-container{
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0, 0.4);
+  top:0;
+  left:0;
+}
+
+.modal{
+  border-radius: 5px;
+  padding: 2rem;
+  background-color: white;
+  width: 25em;
+  margin-left: 35vh;
+  margin-top: 0vh;
+}
+.modal .btn{
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  background-color: blue;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.form-edit{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  /* font-size: 20px;
+  font-family:'Oswald', sans-serif */
+}
+
+.form-edit input {
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.form-edit label {
+  margin-bottom: 0.2rem;
+  font-size: 1.4rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+}
+
+
+
 /* .title{
   font-size: 40px;
   color: #282c34;

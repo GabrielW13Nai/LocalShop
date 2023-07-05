@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ClerkRemove from './ClerkRemove';
+// import ClerkRemove from './ClerkRemove';
 
 function ClerkDisplay(){
     const[users, setUser]= useState([])
@@ -42,8 +42,9 @@ function ClerkDisplay(){
                     <img
                     src = {clerk.user_image}
                     alt = "not found"
-                    width='200'
-                    height='200'
+                    width='150'
+                    height='150'
+                    className="img-clerks"
                     />
                 </div>
                 <div>
@@ -52,7 +53,7 @@ function ClerkDisplay(){
                     <label>Clerk name: </label>
                     <div >{clerk.name}</div> <br></br>
                 </div>
-                <ClerkRemove clerkDelete={users} setClerkDelete={setUser} clerk={clerk} />
+                {/* <ClerkRemove clerkDelete={users} setClerkDelete={setUser} clerk={clerk} /> */}
             </section>
 
             </div>
