@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :role
   has_many :permissions
+  has_many :roles
 
   has_secure_password
   validates :email, presence: true, uniqueness: true

@@ -1,71 +1,72 @@
-import{ React, useState } from "react";
+import{ React } from "react";
+import{ useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Table } from "./Table";
+import { Modal } from './Modal'
+
 
 
 function ClerkEdit(){
-    // const[name, setName]= useState(" ")
-    // const[admin_id, setAdminId]= useState(" ")
 
-    const[value, setValue] = useState();
+    const[modal, setModal] = useState(false)
+    const[clerkDelete, setClerkDelete]= useState([])
+    const[rowEdit, setRowEdit]= useState(null)
 
-    const handleChange = (e) => {
-        setValue(e.target.value)
+
+    useEffect(()=> {
+        fetch('/users')
+        .then(res=> res.json())
+        .then((user)=> {
+            setClerkDelete(user);
+            })
     }
-    const onKeyDown = (e) => {
-        if(e.key === "Enter" || e.key === "Escape"){
-            e.target.blur();
-        }
+    , [])
+
+    function handleEdit(id){
+        fetch('/users',{
+            method: "PATCH"})
+            .then(res => res.json())
+            .then(id=>console.log(id))
+
+        setRowEdit(id);
+        setModal(true);
     }
 
-    const onBlur = (e) => {
-        setValue(e.target.value)
+
+    function handleDelete(id){
+
+        const choice = window.confirm("Are you sure you want to remove this clerk from the system?")
+        if (choice){
+            fetch(`/users/${id}`,{method: "DELETE",})
+            .then(res=> res.json())
+            .then(()=> {
+                const newClerk = clerkDelete.filter(clerk => clerk.id !== id)
+                setClerkDelete(newClerk);
+                })
+                window.location.reload(true)
+            }
+
     }
-
-
-
-
-
-    // const clerk = {
-    //     name,
-    //     admin_id
-    // }
-
-    // useEffect(()=> {
-    //     fetch('/admins')
-    //     .then(res=> res.json())
-    //     .then((clerk=> setAdmin(clerk)))
-    // }, [])
-
-    // function handleEdit(e){
-    //     e.preventDefault();
-    //     fetch('/clerks',{
-    //         method: "PATCH",
-    //         headers: {"Content-Type":"application/json"},
-    //         body: JSON.stringify(clerk)})
-    //     .then(res=> res.json())
-    //     .then(clerk=> console.log(clerk))
-    // }
 
     return (
         <>
-
-            <div className="clerk-2">
+         <div className="clerk-2">
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
-            </div>
+        </div>
 
-            <textarea
-            rows={5}
-            columns={6}
-            type="text"
-            className="input"
-            aria-label="Field name"
-            onChange={handleChange}
-            onKeyDown={onKeyDown}
-            onBlur={onBlur}
-            value={value}
-            />
+        <Table DeleteRow={handleDelete} editRow={handleEdit}/>
+        {modal&& <Modal closeModal={()=>setModal(false)}
+
+        defaultValue={rowEdit !==null}/>}
+        <button className="btn-primary" onClick={()=> setModal(true)}>Open</button>
+
         </>
+
     )
 
 }
+
 export default ClerkEdit;
+
+
+
