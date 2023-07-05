@@ -1,7 +1,7 @@
 import React from 'react'
 // import { IoSaveSharp} from 'react-icons/io5'
 
-export const Modal = ( {closeModal}) => {
+export const Modal = ( {closeModal, defaultValue}) => {
   return (
     <div className='modal-container' onClick={(e)=>{
         if (e.target.className === "modal-container") closeModal()}}>
