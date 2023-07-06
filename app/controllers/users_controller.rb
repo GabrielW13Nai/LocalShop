@@ -12,16 +12,53 @@ class UsersController < ApplicationController
       }
       token = JWT: encode(payload, Rails.configuration.jwt["secret"])
 
+  wrap_parameters format: []
+rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_user
+
+  def create
+    user = User.create!(params_user)
+    # if user.valid?
+    #   token = encode_token(user_id: user.id)
+      render json: user, status: :created
+    # else
+    #   render json: {error: "Wrong credentials"}, status: :unprocessable_entity
+    # end
+  end
+
+  def index
+    user = User.all
+    # token_decode
+    render json: user, each_serializer: UserSerializer, status: :ok
+  end
+
+  def show
+    user = User.find_by(id: params[:id])
+    render json: user, status: :ok
       render json: {token: token}
     else
       render json {error: "Invalid credentials entered"}
     end
   end
 
+  def destroy
+    user = User.find_by(id: params[:id])
+    user.destroy
+    head :no_content
+  end
+
+  def update
+    user = User.find_by(id: params[:id])
+    if user
+      user.update(params.permit(:name, :email, :phone_number, :user_image))
+      render json: user, status: :accepted
+    else
+      render json: {error: "Unable to update"}, status: :unprocessable_entity
+    end
+  end
 
   private
 
-  def params_create
+  def params_user
     params.permit(:name, :email, :password, :phone_number, :user_image, :role_id)
   end
 

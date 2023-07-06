@@ -9,6 +9,7 @@ function ClerkAdd(){
     const[phone_number, setPhone]= useState("")
     const[user_image, setImage]= useState("")
     const[users, setUser]= useState([])
+    const[error, setError]= useState("")
 
     useEffect(()=> {
         fetch('/users')
@@ -50,10 +51,31 @@ function ClerkAdd(){
         role_id
     }
 
-    function handleAdd(){
+    const validation =() => {
+        if (clerk.name && clerk.email && clerk.password && clerk.phone_number && clerk.user_image && clerk.role_id) {
+            setError("")
+            return true;
+        } else {
+            let errorArr = [];
+            for(let [key,value] of Object.entries(clerk)){
+                if(!value){
+                    errorArr.push(key)
+                }
+            }
+            setError(errorArr.join(', '))
+            return false;
+        }}
+
+    function handleAdd(e){
+
+        e.preventDefault();
+
+        if(!validation())return;
+
+
         const choice = window.confirm("Are you sure you want to add this clerk to the system?")
         if(choice){
-        // e.preventDefault();
+
         fetch('/users',{
             method: "POST",
             headers: {"Content-Type":"application/json"},
@@ -65,6 +87,8 @@ function ClerkAdd(){
         )
         alert('Clerk has been added successfully')
     }}
+
+
 
 
     return (
@@ -114,24 +138,17 @@ function ClerkAdd(){
                     type="hidden"
                     className="textbox-clerk"
                     value={clerk.role_id}
-                    ></input> <br></br>
+                    ></input>
 
-                     {/* <label htmlFor="Add Clerk" className="textbox-clerk">Admin Name</label>&nbsp; */}
-{/*
-                        <select className="textbox-clerk" value={clerk.role_id} onChange={e=> setId(e.target.value)}>
-                        {users.map(user=>{
-                            if(user.name!=="Clerk") return null;
+                    {error && <div className="error">{`Please ensure the following input fields are filled: ${error}`}</div>}<br></br>
 
-                            return (
-                                   <>
-                                        <option key={user.id} defaultValue={user.id} selected>{user.name}</option>
-                                    </>
-                                )
-                            })}
-                        </select> <br></br> */}
+
+
                     <div className="buttons">
                         <button className="btn-clerk" type="submit">Add clerk</button>
                     </div>
+
+
 
                </form>
             </div>
