@@ -3,10 +3,8 @@ import { BsFillTrashFill, BsFillPencilFill } from 'react-icons/bs'
 
 
 
-export const Table = ( {setModal, DeleteRow, editRow} ) => {
+export const Table = ( { deleteRow, editRow} ) => {
     const [users, setUsers] = useState([])
-
-
 
 useEffect(()=>{
     fetch('/users')
@@ -18,28 +16,30 @@ useEffect(()=>{
         <div className='tableclerks'>
         <thead >
             <tr className='label-table'>
+            <th>Clerk Id</th>
                 <th>Clerk Name</th>
-                <th>Email</th>
+                <th className='clerk-img-tbl'>Email</th>
                 <th>Phone Number</th>
                 <th>Role</th>
-                <th className='clerk-img-tbl'>Image</th>
+                {/* <th className='clerk-img-tbl'>Image</th> */}
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            {users.map(user=>{
+            {users.map((user, id)=>{
                         if(user.role.name !== 'Clerk') return null;
                             return(
-                        <tr>
+                        <tr key={id}>
                                 <>
+                                <td> {user.id}</td>
                                 <td> {user.name}</td>
-                                <td> {user.email}</td>
+                                <td className='clerk-img-tbl'> {user.email}</td>
                                 <td> {user.phone_number}</td>
                                 <td> {user.role.name}</td>
-                                <td className='clerk-img-tbl'> {user.user_image}</td>
+                                {/* <td className='clerk-img-tbl'> {user.user_image}</td> */}
                                 <td>
                             <span className='actions'>
-                                <BsFillTrashFill className='trash' onClick={()=>DeleteRow(user.id)}/>
+                                <BsFillTrashFill className='trash' onClick={()=>deleteRow(user.id)}/>
                                 <BsFillPencilFill onClick={()=> editRow(user.id)}/>
                             </span>
                         </td>

@@ -179,3 +179,25 @@ import { useState } from "react";
     // const onBlur = (e) => {
     //     setValue(e.target.value)
     // }
+         {/* <label htmlFor="Add Clerk" className="textbox-clerk">Admin Name</label>&nbsp; */}
+{/*
+                        <select className="textbox-clerk" value={clerk.role_id} onChange={e=> setId(e.target.value)}>
+                        {users.map(user=>{
+                            if(user.name!=="Clerk") return null;
+
+                            return (
+                                   <>
+                                        <option key={user.id} defaultValue={user.id} selected>{user.name}</option>
+                                    </>
+                                )
+                            })}
+                        </select> <br></br> */}
+                        const [users, setUsers] = useState([])
+
+
+
+                        useEffect(()=>{
+                            fetch('/users')
+                            .then(res=> res.json())
+                            .then(user=> setUsers(user))
+                        },[])
