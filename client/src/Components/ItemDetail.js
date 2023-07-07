@@ -9,14 +9,14 @@ function ItemDetail({ item}) {
       pathname: "/itemcollection",
       state: {item: item}
     })
-    
+
   }
 
   return (
     <div className='card' onClick={handleClick}>
-       <p>{item.name}</p> 
-       <img className="image"src={item.image} alt="no image found"/>
-        
+       <p>{item.name}</p>
+       <img className="image"src={item.image} alt="not found"/>
+
     </div>
   )
 }
