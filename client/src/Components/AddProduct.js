@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 function AddProduct({ data, setData }) {
   const [formData, setFormData] = useState({
@@ -13,7 +13,7 @@ function AddProduct({ data, setData }) {
     user_id: "",
   });
 
-  const location = useLocation();
+  // const location = useLocation();
 
   function handleSubmit(e) {
     e.preventDefault();
