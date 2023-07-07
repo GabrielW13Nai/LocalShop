@@ -13,6 +13,7 @@ function ClerkEdit(){
     const[rowEdit, setRowEdit]= useState(null)
 
 
+
     useEffect(()=> {
         fetch('/users')
         .then(res=> res.json())
@@ -22,10 +23,11 @@ function ClerkEdit(){
     }
     , [])
 
-    function handleEdit(id){
-        setRowEdit(id);
+    function handleEdit(idx){
+        setRowEdit(idx);
 
-        setModal(true);
+        setModal(true)
+
     }
 
 
@@ -33,8 +35,8 @@ function ClerkEdit(){
         // e.preventDefault();
         // rowEdit ===null?
         // setRowEdit([...clerk, newRow]):
-        setRowEdit(clerk.map((currRow,id)=>{
-            if (id !== rowEdit) return currRow;
+        setClerk(clerk.map((currRow,idx)=>{
+            if(idx !== rowEdit) return currRow;
                 return newRow;
     }))
     }
@@ -62,17 +64,18 @@ function ClerkEdit(){
         </div>
 
         <Table deleteRow={handleDelete} editRow={handleEdit}/>
-        {modal &&
-        (<Modal
+        { modal && <Modal
             onSubmit={handleSubmit}
             closeModal={()=>setModal(false)}
             defaultValue={rowEdit !== null && clerk[rowEdit-1]}
-            />)}
-        {/* <button className="btn-primary" onClick={()=> setModal(true)}>Open</button> */}
+            /> }
 
-        </>
+            </>)
 
-    )
+
+
+        // {<button className="btn-primary" onClick={()=> setModal(true)}>Open</button> }
+
 
 }
 
