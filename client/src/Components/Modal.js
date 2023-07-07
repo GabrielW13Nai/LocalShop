@@ -5,13 +5,22 @@ export const Modal = ( {closeModal, defaultValue, onSubmit}) => {
 
     const [formObj, setFormObj] = useState(
        defaultValue || {
+        id:"",
         name: "",
         email: "",
-        phone_number: "",
-        user_image: ""
+        phone_number: ""
     })
 
-    console.log(defaultValue)
+    // const [id, setId] = useState("")
+
+    // const formId = {
+    //     id
+    // }
+
+
+    // user_image: ""
+
+    // console.log(defaultValue)
 
     // const validateForm = e => {
 
@@ -20,6 +29,7 @@ export const Modal = ( {closeModal, defaultValue, onSubmit}) => {
     const handleChange = e => {
         e.preventDefault();
         setFormObj({...formObj, [e.target.name]: e.target.value});
+        console.log(formObj);
     }
 
     const handleSubmit=(id) => {
@@ -32,7 +42,9 @@ export const Modal = ( {closeModal, defaultValue, onSubmit}) => {
             body: JSON.stringify(formObj)
             })
             .then(res => res.json())
-            .then(obj=>{console.log(obj)})
+            .then(
+            console.log(formObj));
+            // setId(id)
             onSubmit(formObj);
     }
 
@@ -40,29 +52,29 @@ export const Modal = ( {closeModal, defaultValue, onSubmit}) => {
     <div className='modal-container' onClick={(e)=>{
         if (e.target.className === "modal-container") closeModal()}}>
         <div className='modal'>
-            <form onSubmit={handleSubmit}>
+            <form >
             <div className='form-edit'>
                     <label htmlFor='Clerk Id'>Clerk Id</label>
-                    <input placeholder='Id'  onChange={handleChange} defaultValue={defaultValue.id} readOnly/>
+                    <input placeholder='Id' name='name' value={formObj.id} readOnly/>
                 </div>
                 <div className='form-edit'>
                     <label htmlFor='Clerk Name'>Clerk Name</label>
-                    <input placeholder='Name' onChange={handleChange} defaultValue={defaultValue.name}/>
+                    <input placeholder='Name' value={formObj.name} onChange={handleChange}  name='name'/>
                 </div>
                 <div className='form-edit'>
                     <label htmlFor='Email'>Clerk Email</label>
-                    <input placeholder='Email Address' onChange={handleChange} defaultValue={defaultValue.email}/>
+                    <input placeholder='Email Address' value={formObj.email} onChange={handleChange} />
                 </div>
                 <div className='form-edit'>
                     <label htmlFor='Phone Number'>Phone Number</label>
-                    <input placeholder='Phone'  onChange={handleChange} defaultValue={defaultValue.phone_number} />
+                    <input placeholder='Phone' value={formObj.phone_number} onChange={handleChange}/>
                 </div>
                 {/* <div className='form-edit'>
                     <label htmlFor='Upload image'>Update image here</label>
                     <input placeholder='image' type='file' accept='image/*' onChange={handleChange} />
                 </div> */}
 
-                <button type='submit' className='btn'>Submit</button>
+                <button type='submit' className='btn' onClick={handleSubmit}>Submit</button>
 
             </form>
         </div>

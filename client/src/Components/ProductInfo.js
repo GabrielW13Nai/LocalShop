@@ -1,12 +1,9 @@
-import React from "react";
-function ProductInfo(){
-    return (
-        <>
-        <div className="product-information">
-        </div>
-        <h3>Product Information</h3>
-        </>
-    )
+import React from 'react'
 
+const ProductInfo = () => {
+  return (
+    <div>ProductInfo</div>
+  )
 }
+
 export default ProductInfo;
