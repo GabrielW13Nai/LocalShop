@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_user
 
   def create
-    user = User.create!(params_create)
+    user = User.create!(params_user)
     # if user.valid?
     #   token = encode_token(user_id: user.id)
       render json: user, status: :created
@@ -30,9 +30,19 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_user
     head :no_content
   end
 
+  def update
+    user = User.find_by(id: params[:id])
+    if user
+      user.update(params.require(:user).permit(:name, :email, :phone_number, :user_image))
+      render json: user, status: :accepted
+    else
+      render json: {error: "Unable to update"}, status: :unprocessable_entity
+    end
+  end
+
   private
 
-  def params_create
+  def params_user
     params.permit(:name, :email, :password, :phone_number, :user_image, :role_id)
   end
 

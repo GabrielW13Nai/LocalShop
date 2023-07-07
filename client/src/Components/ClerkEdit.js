@@ -9,27 +9,36 @@ import { Modal } from './Modal'
 function ClerkEdit(){
 
     const[modal, setModal] = useState(false)
-    const[clerkDelete, setClerkDelete]= useState([])
+    const[clerk, setClerk]= useState([])
     const[rowEdit, setRowEdit]= useState(null)
+
 
 
     useEffect(()=> {
         fetch('/users')
         .then(res=> res.json())
         .then((user)=> {
-            setClerkDelete(user);
+            setClerk(user);
             })
     }
     , [])
 
-    function handleEdit(id){
-        fetch('/users',{
-            method: "PATCH"})
-            .then(res => res.json())
-            .then(id=>console.log(id))
+    function handleEdit(idx){
+        setRowEdit(idx);
 
-        setRowEdit(id);
-        setModal(true);
+        setModal(true)
+
+    }
+
+
+    const handleSubmit = (newRow) => {
+        // e.preventDefault();
+        // rowEdit ===null?
+        // setRowEdit([...clerk, newRow]):
+        setClerk(clerk.map((currRow,idx)=>{
+            if(idx !== rowEdit) return currRow;
+                return newRow;
+    }))
     }
 
 
@@ -40,8 +49,8 @@ function ClerkEdit(){
             fetch(`/users/${id}`,{method: "DELETE",})
             .then(res=> res.json())
             .then(()=> {
-                const newClerk = clerkDelete.filter(clerk => clerk.id !== id)
-                setClerkDelete(newClerk);
+                const newClerk = clerk.filter(clerk => clerk.id !== id)
+                setClerk(newClerk);
                 })
                 window.location.reload(true)
             }
@@ -54,15 +63,19 @@ function ClerkEdit(){
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
         </div>
 
-        <Table DeleteRow={handleDelete} editRow={handleEdit}/>
-        {modal&& <Modal closeModal={()=>setModal(false)}
+        <Table deleteRow={handleDelete} editRow={handleEdit}/>
+        { modal && <Modal
+            onSubmit={handleSubmit}
+            closeModal={()=>setModal(false)}
+            defaultValue={rowEdit !== null && clerk[rowEdit-1]}
+            /> }
 
-        defaultValue={rowEdit !==null}/>}
-        <button className="btn-primary" onClick={()=> setModal(true)}>Open</button>
+            </>)
 
-        </>
 
-    )
+
+        // {<button className="btn-primary" onClick={()=> setModal(true)}>Open</button> }
+
 
 }
 
