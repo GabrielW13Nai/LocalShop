@@ -24,8 +24,13 @@ function ProductInfo(){
             <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvNddxuJAgTkl_DC8LzJSeh44dIlECzQc-EA&usqp=CAU" />
             <p>VIEW PRODUCT</p>
           </div>
-        </div> 
+        </div>
       </>)
 
+const ProductInfo = () => {
+  return (
+    <div>ProductInfo</div>
+  )
 }
+
 export default ProductInfo;

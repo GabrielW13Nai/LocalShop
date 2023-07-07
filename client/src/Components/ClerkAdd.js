@@ -86,6 +86,7 @@ function ClerkAdd(){
         }
         )
         alert('Clerk has been added successfully')
+        window.location.reload();
     }}
 
 
