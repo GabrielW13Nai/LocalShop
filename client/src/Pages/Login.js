@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css'
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -23,7 +25,7 @@ const Login = () => {
     // Perform login logic if form inputs are valid
     if (username && password && role) {
       // handle the login logic here, such as making API calls to your Rails backend.
-      
+
     }
   };
 
@@ -52,9 +54,13 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         {errorMessages.password && <span className="error-message">{errorMessages.password}</span>}
-        
+
         <button type="submit">Login</button>
       </form>
+      <label> Haven't signed up yet? Click </label>
+      <Link to="/signup" className="login-link">
+            Here &rarr;
+          </Link>
     </div>
   );
 };

@@ -33,7 +33,7 @@ function ClerkDisplay(){
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
         </div>
         {users.map((clerk, id)=>{
-            if(clerk.role.name !== "Clerk") return null;
+            if(clerk.role !== "clerk") return null;
             return(
             <>
             <div className="clerks-flex-display" key={id}>

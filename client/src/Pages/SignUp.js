@@ -1,4 +1,5 @@
 import React from 'react'
+import useNavigate from 'react-router-dom'
 
 function SignUp({ setIsLoggedIn }) {
   const [username, setUsername] = useState('');

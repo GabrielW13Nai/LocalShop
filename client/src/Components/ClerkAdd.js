@@ -146,7 +146,7 @@ function ClerkAdd(){
                     <input
                         type="hidden"
                         className="textbox-clerk"
-                        value={clerk.role_id}
+                        value={"clerk"}
                     />
 
                     {error && <div className="error">{`Please ensure the following input fields are filled: ${error}`}</div>}<br></br>

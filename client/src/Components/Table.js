@@ -29,7 +29,7 @@ export const Table = ( {deleteRow, editRow, users} ) => {
         </thead>
         <tbody>
             {users.map((user)=>{
-                        if(user.role.name !== 'Clerk') return null;
+                        if(user.role !== 'clerk') return null;
                             return(
                         <tr key={user.id}>
                                 <>
@@ -37,7 +37,7 @@ export const Table = ( {deleteRow, editRow, users} ) => {
                                 <td> {user.name}</td>
                                 <td className='clerk-img-tbl'> {user.email}</td>
                                 <td> {user.phone_number}</td>
-                                <td> {user.role.name}</td>
+                                <td> {user.role}</td>
                                 {/* <td className='clerk-img-tbl'> {user.user_image}</td> */}
                                 <td>
                             <span className='actions'>

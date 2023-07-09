@@ -1,5 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :email, :password, :phone_number, :user_image, :role_id
+  attributes :id, :name, :email, :password, :phone_number, :user_image, :role
 
-  belongs_to :role
 end
