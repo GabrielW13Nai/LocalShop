@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :roles
-  has_many :permissions
+  belongs_to :role
+  has_many :items, dependent: :destroy
 
   has_secure_password
   has_many :items

@@ -1,30 +1,23 @@
+import React from "react";
+import { Link } from "react-router-dom";
 
-import { useHistory } from "react-router-dom";
+function PaymentStatus(){
+    return(
+        <>
+            <div className="clerk-div-3">
+                <div className="button-clerk">
+                <Link to="/paid">
+                    <img rounded src="https://cdn-icons-png.flaticon.com/512/9478/9478631.png"
+                    className="img-clerk-display"
+                    alt="Not found"
+                    width="400"
+                    height="400"
+                    /></Link><br></br>
+                    <label className="text-clerk-add"> CHECK CURRENT STATUS</label>
+                </div>
+            </div>
+        </>
+    )
 
-function ProductInfo(){
-
-    const history = useHistory();
-
-    function handleView(){
-      history.push("/viewproducts")
-    }
-
-    function handleAdd(){
-      history.push("/addproducts")
-    }
-
-    return (
-      <>
-        <div className="product-information">
-          <div onClick={handleAdd} className="icons">
-            <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9t-km7l-fz4xsYz_o7cK_2hWgJ1puvsI3Pg&usqp=CAU" alt="not found"/>
-             <p>ADD PRODUCT</p>
-          </div>
-          <div onClick={handleView} className="icons">
-            <img className="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvNddxuJAgTkl_DC8LzJSeh44dIlECzQc-EA&usqp=CAU" alt="not found" />
-            <p>VIEW PRODUCT</p>
-          </div>
-        </div>
-      </>)
 }
-export default ProductInfo;
+export default PaymentStatus;
