@@ -1,54 +1,23 @@
 
 
 puts "seeding......."
-
-
-
-begin
-  super_user_role = Role.create!(name: "Super User", description: "This is the super user of the system")
-  admin_role = Role.create!(name: "Admin", description: "This is the admin of the system")
-  clerk_role = Role.create!(name: "Clerk", description: "This is the clerk of the system")
-
-rescue
-
-  puts "skipped"
-  super_user_role = Role.find_by!(name:"Super User")
-  admin_role = Role.find_by!(name:"Admin")
-  clerk_role = Role.find_by!(name: "Clerk")
-
+users = [
+  {name: "John Doe", email: "john@example.com", password_digest: "password123", phone_number: "1234567890", role: "admin"},
+  {name: "Jane Smith", email: "jane@example.com", password_digest: "pass321word", phone_number: "9876543210",role: "user"},
+  {name: "Peter Parker", email: "peter@example.com", password_digest: "pass456word", phone_number: "7294732102",role: "super_admin"}
+]
+users.each do |user_data|
+  User.create(user_data)
 end
 
-user1 = User.create(name: "James", email: "james@adminuser.com", password: "123456", phone_number: 254732422333, user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMGEmJg0U1cedvxLtkdEpCxVJRxLDsBaiHA&usqp=CAU", role_id: admin_role.id )
+items = [
+  { name: "Dining table", quantity: 10,destroyed_items: 2,status_of_item: "active",buying_price: 5.99, selling_price: 9.99, user_id: 1},
+  { name: "Foldable chair",quantity: 5, destroyed_items: 0,status_of_item: "active",buying_price: 8.99, selling_price: 14.99,user_id: 1},
+  {name: "TV Console", quantity: 3, destroyed_items: 1, status_of_item: "inactive", buying_price: 6.99, selling_price: 11.99, user_id: 2 }
+]
 
-10.times {User.create(
-  name: Faker::Name.name,
-  email: Faker::Internet.email ,
-  password: "123456",
-  phone_number: 253444333,
-  user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSMGEmJg0U1cedvxLtkdEpCxVJRxLDsBaiHA&usqp=CAU",
-  role_id: clerk_role.id
-)}
-
-
-begin
-  all_permissions = Permission.create!(name: "all", alias: "*")
-  create_admin_permissions = Permission.create!(name: "Create clerk", alias: "create_clerk")
-  update_admin_permissions = Permission.create!(name: "Update clerk", alias: "update_clerk")
-  delete_admin_permissions = Permission.create!(name: "Delete clerk", alias: "delete_clerk")
-
-  create_clerk_permissions = Permission.create(name: "Create item", alias: "create_item")
-  update_clerk_permissions = Permission.create(name: "Update item", alias: "update_item")
-  delete_clerk_permissions = Permission.create(name: "Delete item", alias: "delete_item")
-rescue
-  puts "Permission existing"
-  all_permissions =  Permission.find_by!(alias: "*")
-  create_admin_permissions = Permission.find_by!(alias: "create_clerk")
-  update_admin_permissions = Permission.find_by!(alias: "update_clerk")
-  delete_admin_permissions = Permission.find_by!(alias: "delete_clerk")
-
-  create_clerk_permissions = Permission.find_by(alias: "create_item")
-  update_clerk_permissions = Permission.find_by(alias: "update_item")
-  delete_clerk_permissions = Permission.find_by(alias: "delete_item")
+items.each do |item_data|
+  Item.create!(item_data)
 end
 
 begin

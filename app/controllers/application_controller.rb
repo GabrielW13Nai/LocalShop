@@ -20,11 +20,12 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    def token_decode
-      token = request.headers['Authorization'].split(" ")[1]
+  def decoded_token
+    if auth_header
+      token = auth_header.split(' ')[1]
       begin
-        JWT.decode(token, Rails.configuration.jwt[:secret])[0]
-      rescue JWT.DecodeError
+        JWT.decode(token, 'secret', true, algorithm: 'HS256')
+      rescue JWT::DecodeError
         nil
       end
     end
@@ -34,26 +35,24 @@ class ApplicationController < ActionController::Base
       permissions.include?('*') || permissions.include?(`#{policy}_#{resource}`)
     end
 
-    def allowed
-      policy = case request.method
-      when "POST"
-        "add"
-      when "PATCH" || "PUT"
-        "update"
-      when "DESTROY"
-        "delete"
-      else
-        "view"
-      end
+
 
       path = request.path.split("/")
       resource = path[1]
       paramsPath = path[2]
 
       raise ActionController::RoutingError.new("Forbidden") unless allowed(policy,  paramsPath && policy == "view"? resource.singliarize : resource)
+  def current_user
+    return @current_user if @current_user
+
+    if decoded_token
+      user_id = decoded_token[0]['user_id']
+      @current_user = User.find_by(id: user_id)
+      raise ActionController::RoutingError.new("Forbidden") unless allowed(policy,  paramsPath && policy == "view"? resource.singliarize : resource)
     end
 
-    private
+    @current_user
+  end
 
     def render_unprocessable_entity_response(exception)
       render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
