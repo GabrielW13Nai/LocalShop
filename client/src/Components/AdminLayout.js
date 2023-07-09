@@ -16,6 +16,8 @@ import ViewProduct from "./ViewProduct";
 import ItemCollection from "./ItemCollection";
 import Paid from './Paid';
 import Report from './Report';
+// import UserContextProvider from "../Context/UserContext";
+// import { Modal } from "./Modal";
 
 
 function AdminLayout(){
@@ -73,6 +75,9 @@ function AdminLayout(){
 
 
             </Switch>
+            {/* <UserContextProvider>
+                <Modal />
+            </UserContextProvider> */}
         </div>
         </div>
     </div>

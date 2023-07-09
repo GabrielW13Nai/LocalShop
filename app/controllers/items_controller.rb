@@ -9,6 +9,16 @@ class ItemsController < ApplicationController
       render json: item, each_serializer: ItemSerializer, status: :ok
     end
 
+    def create
+      item = Item.create!(item_params)
+    # if user.valid?
+    #   token = encode_token(user_id: user.id)
+      render json: item, status: :created
+    # else
+    #   render json: {error: "Wrong credentials"}, status: :unprocessable_entity
+    # end
+    end
+
     def show
       user = Item.find_by(id: params[:id])
       render json: item, status: :ok
@@ -28,7 +38,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-      params.permit(:name, :quantity, :destroyed_items, :status_of_item, :buying_price, :selling_price)
+      params.permit(:name, :quantity, :destroyed_items, :status_of_item, :buying_price, :selling_price, :image, :user_id)
     end
 
     def render_unprocessable_user(invalid)

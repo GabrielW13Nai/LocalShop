@@ -1,8 +1,10 @@
-import{ React } from "react";
+import{ React, useContext } from "react";
 import{ useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "./Table";
 import { Modal } from './Modal'
+import { UserContext } from './UserContext'
+
 
 
 
@@ -10,7 +12,11 @@ function ClerkEdit(){
 
     const[modal, setModal] = useState(false)
     const[clerk, setClerk]= useState([])
-    const[rowEdit, setRowEdit]= useState(null)
+    const[rowEdit, setRowEdit]= useState(-1)
+    // const[id, setId] = useState("")
+
+
+    const {users} = useContext(UserContext)
 
 
 
@@ -23,22 +29,28 @@ function ClerkEdit(){
     }
     , [])
 
-    function handleEdit(idx){
-        setRowEdit(idx);
+    // useEffect(()=> {
+    //     clerk.map(user => setId(user.id))
+    // }, [clerk])
 
+
+
+
+
+    // const user_id = clerk.map(user=> user)
+
+    function handleEdit(id){
+        setRowEdit(id);
         setModal(true)
 
     }
 
 
-    const handleSubmit = (newRow) => {
+    const handleSubmit = (id, updated) => {
         // e.preventDefault();
         // rowEdit ===null?
         // setRowEdit([...clerk, newRow]):
-        setClerk(clerk.map((currRow,idx)=>{
-            if(idx !== rowEdit) return currRow;
-                return newRow;
-    }))
+        setClerk(clerk.map((user)=>user.id === id? updated: user))
     }
 
 
@@ -63,14 +75,19 @@ function ClerkEdit(){
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
         </div>
 
-        <Table deleteRow={handleDelete} editRow={handleEdit}/>
+
+
+        <Table deleteRow={handleDelete} editRow={handleEdit} users={users}/>
         { modal && <Modal
             onSubmit={handleSubmit}
             closeModal={()=>setModal(false)}
-            defaultValue={rowEdit !== null && clerk[rowEdit-1]}
+            defaultValue={rowEdit !== null && users[rowEdit-1]}
+
             /> }
 
             </>)
+
+
 
 
 

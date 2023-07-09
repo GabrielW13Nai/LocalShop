@@ -35,6 +35,9 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_user
   def params_create
     params.permit(:name, :email, :password, :phone_number, :user_image, :role_id)
   end
+  def params_update
+    params.permit(:id, :name, :email, :password, :phone_number, :user_image, :role_id, :role)
+  end
 
   def render_unprocessable_user(invalid)
     render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity

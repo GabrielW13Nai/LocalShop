@@ -11,6 +11,8 @@ function ClerkAdd(){
     const[users, setUser]= useState([])
     const[error, setError]= useState("")
 
+
+
     useEffect(()=> {
         fetch('/users')
         .then(res=> res.json())
@@ -19,21 +21,27 @@ function ClerkAdd(){
     }
     , [])
 
+    const[role_id, setId]= useState()
+
+
 
     useEffect(()=> {
         users.map(user =>{
              const name = user.role.name;
              if (name!== "Clerk")return null;
                 return (
-                    setId(user.role_id))
+                    setId(user.role_id)
+                    )
         }
                 )
 
     }, [users])
-
-
-    const[role_id, setId]= useState()
     console.log(role_id)
+
+
+
+
+
     // const options = {
     //     value: 1,
     //   }
@@ -52,7 +60,7 @@ function ClerkAdd(){
     }
 
     const validation =() => {
-        if (clerk.name && clerk.email && clerk.password && clerk.phone_number && clerk.user_image && clerk.role_id) {
+        if (clerk.name && clerk.email && clerk.password && clerk.phone_number && clerk.user_image && clerk.role_id ) {
             setError("")
             return true;
         } else {
@@ -101,45 +109,45 @@ function ClerkAdd(){
                     <h1 className="clerk-information-title" >Clerk Information</h1>
                     <label htmlFor="Add Clerk" className="textbox-clerk">Clerk Name</label>
                     <input
-                    type="text"
-                    onChange={e=> setName(e.target.value)}
-                    className="textbox-clerk"
-                    value={clerk.name}
-                    ></input> <br></br>
+                        type="text"
+                        onChange={e=> setName(e.target.value)}
+                        className="textbox-clerk"
+                        value={clerk.name}
+                    /> <br></br>
                      <label htmlFor="Add Clerk" className="textbox-clerk">Email</label>
                     <input
-                    type="text"
-                    onChange={e=> setEmail(e.target.value)}
-                    className="textbox-clerk"
-                    value={clerk.email}
-                    ></input> <br></br>
-                    <label htmlFor="Add Clerk" className="textbox-clerk">Password</label>
+                        type="text"
+                        onChange={e=> setEmail(e.target.value)}
+                        className="textbox-clerk"
+                        value={clerk.email}
+                    /> <br></br>
+                    <label htmlFor="Add Clerk" className="textbox-clerk">Password</label><br></br>
                     <input
-                    type="password"
-                    placeholder=" Enter your password"
-                    onChange={e=> setPassword(e.target.value)}
-                    className="textbox-clerk"
-                    value={clerk.password}
-                    ></input> <br></br>
+                        type="password"
+                        placeholder=" Enter your password"
+                        onChange={e=> setPassword(e.target.value)}
+                        className="textbox-clerk"
+                        value={clerk.password}
+                    /> <br></br>
                     <label htmlFor="Add Clerk" className="textbox-clerk">Phone Number</label>
                     <input
-                    type="text"
-                    onChange={e=> setPhone(e.target.value)}
-                    className="textbox-clerk"
-                    value={clerk.phone_number}
-                    ></input> <br></br>
+                        type="text"
+                        onChange={e=> setPhone(e.target.value)}
+                        className="textbox-clerk"
+                        value={clerk.phone_number}
+                    /> <br></br>
                     <label htmlFor="Add Clerk" className="textbox-clerk">Insert Image here</label>
                     <input
-                    type="text"
-                    onChange={e=> setImage(e.target.value)}
-                    className="textbox-clerk"
-                    value={clerk.user_image}
-                    ></input> <br></br>
+                        type="text"
+                        onChange={e=> setImage(e.target.value)}
+                        className="textbox-clerk"
+                        value={clerk.user_image}
+                    /> <br></br>
                     <input
-                    type="hidden"
-                    className="textbox-clerk"
-                    value={clerk.role_id}
-                    ></input>
+                        type="hidden"
+                        className="textbox-clerk"
+                        value={clerk.role_id}
+                    />
 
                     {error && <div className="error">{`Please ensure the following input fields are filled: ${error}`}</div>}<br></br>
 
@@ -153,13 +161,12 @@ function ClerkAdd(){
 
                </form>
             </div>
-            <div className="clerk-2">
+
+        </div>
+
+        <div className="clerk-2">
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
             </div>
-            <div className="clerk-div-3">
-
-            </div>
-        </div>
 
         </>
     )
