@@ -7,8 +7,11 @@ import Button from '@mui/material/Button';
 const Paid = () => {
   const [items, setItems] = useState([])
   const [status, setStatus] = useState(false)
+  const [row, setRow] = useState(null)
+  const[classNames, setClassNames] = useState("enabled-class")
+
   // const [button, setButton] = useState(false)
-const[classNames, setClassNames] = useState("enabled-class")
+
 
 
 useEffect(()=>{
@@ -20,13 +23,15 @@ useEffect(()=>{
 
 
 
-const handleStatus = () => {
-  setStatus(!status)
+const handleStatus = (idx,e) => {
   setClassNames("disabled-class")
+  setRow(idx)
+  setStatus(!status)
 }
 
-const handleReverse = () => {
+const handleReverse = (idx, good) => {
   setStatus(!status)
+  setRow(idx)
   setClassNames("enabled-class")
 }
 
@@ -53,12 +58,12 @@ const handleReverse = () => {
         <thead >
             <tr className='label-table'>
             <th>Item Id</th>
+            <th>Item Name</th>
                 <th className='clerk-img-tbl'>Quantity of Items</th>
                 <th>Items destroyed</th>
                 <th>Status of Item</th>
                 <th>Buying Price (in Ksh.)</th>
                 <th>Selling Price (in Ksh.)</th>
-                <th>Clerk In Charge</th>
                 {/* <th className='clerk-img-tbl'>Image</th> */}
                 <th>Actions</th>
             </tr>
@@ -68,20 +73,20 @@ const handleReverse = () => {
                             return(
                         <tr key={id}>
                                 <>
+                                <td> {item.id}</td>
                                 <td> {item.name}</td>
                                 <td >{item.quantity}</td>
                                 <td> {item.destroyed_items}</td>
                                 <td>
-                                  {status && item.status_of_item!=="Paid"? <span class={classNames}>{item.status_of_item}</span>: null}
+                                  {item.status_of_item}
                                 </td>
                                 <td> {item.buying_price}</td>
                                 <td> {item.selling_price}</td>
-                                <td> {item.user.name}</td>
                                 {/* <td className='clerk-img-tbl'> {user.user_image}</td> */}
                                 <td>
                             <span className='actions'>
-                            <Button variant="contained" disabled={status} onClick={handleStatus}>Confirm</Button>
-                            <Button variant="contained" disabled={!status} onClick={handleReverse} >Reverse Payment</Button>
+                            <Button variant="contained" disabled={item.status_of_item==="Paid"? status: !status} className={classNames} onClick={()=> handleStatus(item.id[row-1])}>Confirm</Button>
+                            <Button variant="contained" disabled={item.status_of_item==="Unpaid"? status: !status} className={classNames} onClick={()=> handleReverse(item.id[row-1])} >Reverse</Button>
                             </span>
                         </td>
                                 </>
@@ -98,7 +103,7 @@ const handleReverse = () => {
     <br></br> <br></br>
     <div className="clerk-2">
             <Link to="/paymentstatus"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
-      </div>
+     </div>
 
 
     </>

@@ -33,7 +33,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_user
   def update
     user = User.find_by(id: params[:id])
     if user
-      user.update(params.require(:user).permit(:name, :email, :phone_number, :user_image))
+      user.update(params_update)
       render json: user, status: :accepted
     else
       render json: {error: "Unable to update"}, status: :unprocessable_entity
@@ -44,6 +44,9 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_user
 
   def params_user
     params.permit(:name, :email, :password, :phone_number, :user_image, :role_id)
+  end
+  def params_update
+    params.permit(:id, :name, :email, :password, :phone_number, :user_image, :role_id, :role)
   end
 
   def render_unprocessable_user(invalid)

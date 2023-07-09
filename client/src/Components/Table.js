@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import { React } from 'react'
 import { BsFillTrashFill, BsFillPencilFill } from 'react-icons/bs'
 
 
 
-export const Table = ( { deleteRow, editRow} ) => {
-    const [users, setUsers] = useState([])
+export const Table = ( {deleteRow, editRow, users} ) => {
+//     const [users, setUsers] = useState([])
 
-useEffect(()=>{
-    fetch('/users')
-    .then(res=> res.json())
-    .then(user=> setUsers(user))
-},[])
+
+
+// useEffect(()=>{
+//     fetch('/users')
+//     .then(res=> res.json())
+//     .then(user=> setUsers(user))
+// },[])
   return (
     <>
         <div className='tableclerks'>
@@ -26,10 +28,10 @@ useEffect(()=>{
             </tr>
         </thead>
         <tbody>
-            {users.map((user, id)=>{
+            {users.map((user)=>{
                         if(user.role.name !== 'Clerk') return null;
                             return(
-                        <tr key={id}>
+                        <tr key={user.id}>
                                 <>
                                 <td> {user.id}</td>
                                 <td> {user.name}</td>
@@ -45,7 +47,8 @@ useEffect(()=>{
                         </td>
                                 </>
 
-            </tr>)})}
+            </tr>
+            )})}
 
 
         </tbody>

@@ -1,12 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
 import Admin from './Pages/Admin';
+import UserContextProvider from './Components/UserContext';
 
 function App() {
   return (
     <>
     <div className="App">
-      <Admin />
+    <UserContextProvider>
+        <Admin />
+      </UserContextProvider>
     </div>
     </>
   );

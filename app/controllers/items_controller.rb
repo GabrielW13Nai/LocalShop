@@ -1,19 +1,4 @@
 class ItemsController < ApplicationController
-    def index
-        items = Item.all
-
-        render json: items
-    end
-
-    def create
-        item = Item.create!(name: params[:name], destroyed_items: params[:destroyed_items],status_of_item: params[:status_of_item],buying_price: params[:buying_price],selling_price: params[:selling_price],image: params[:image],user_id: params[:user_id]
-        )
-
-        render json: item, status: :created
-    end
-
-
-
   wrap_parameters format: []
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_user
 
@@ -22,6 +7,16 @@ class ItemsController < ApplicationController
       item = Item.all
       # token_decode
       render json: item, each_serializer: ItemSerializer, status: :ok
+    end
+
+    def create
+      item = Item.create!(item_params)
+    # if user.valid?
+    #   token = encode_token(user_id: user.id)
+      render json: item, status: :created
+    # else
+    #   render json: {error: "Wrong credentials"}, status: :unprocessable_entity
+    # end
     end
 
     def show
@@ -43,7 +38,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-      params.permit(:name, :quantity, :destroyed_items, :status_of_item, :buying_price, :selling_price)
+      params.permit(:name, :quantity, :destroyed_items, :status_of_item, :buying_price, :selling_price, :image, :user_id)
     end
 
     def render_unprocessable_user(invalid)

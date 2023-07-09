@@ -1,22 +1,38 @@
 import React, { useState} from "react";
+import { Link } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
 function AddProduct({ data, setData }) {
-  const [formData, setFormData] = useState({
-    name: "",
-    quantity: "",
-    destroyed_items: "",
-    status_of_item: "",
-    buying_price: "",
-    selling_price: "",
-    image: "",
-    user_id: "",
-  });
+  const options = [
+    {value: "Paid", text: "Paid"},
+    {value: "Unpaid",text: "Unpaid"}
+]
+  const[name, setName] = useState("")
+  const[quantity, setQuantity] = useState("")
+  const[destroyed_items, setDestroyedItems] = useState("")
+  const[status_of_item, setStatus] = useState(options[0].value)
+  const[buying_price, setBuyingPrice] = useState("")
+  const[selling_price, setSellingPrice] = useState("")
+  const[image, setImage] = useState("")
+  const[user_id, setId] = useState("")
+
+
+  const formData = {
+    name,
+    quantity,
+    destroyed_items,
+    status_of_item,
+    buying_price,
+    selling_price,
+    image,
+    user_id
+  }
+
 
   // const location = useLocation();
 
   function handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     fetch("/items", {
       method: "POST",
       headers: {
@@ -29,24 +45,24 @@ function AddProduct({ data, setData }) {
         console.log(info);
       });
 
-    setFormData({
-      name: "",
-      quantity: "",
-      destroyed_items: "",
-      status_of_item: "",
-      buying_price: "",
-      selling_price: "",
-      image: "",
-      user_id: "",
-    });
+    // setFormData({
+    //   name: "",
+    //   quantity: "",
+    //   destroyed_items: "",
+    //   status_of_item: "",
+    //   buying_price: "",
+    //   selling_price: "",
+    //   image: "",
+    //   user_id: "",
+    // });
   }
   //handle formdata change
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
+  // function handleChange(e) {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // }
 
   return (
     <>
@@ -59,8 +75,9 @@ function AddProduct({ data, setData }) {
             type="text"
             id="name"
             name="name"
+            className="add-item"
             value={formData.name}
-            onChange={handleChange}
+            onChange={e => setName(e.target.value)}
             placeholder="name.."
           />
           <label for="quantity">Quantity</label>
@@ -68,8 +85,9 @@ function AddProduct({ data, setData }) {
             type="number"
             id="quantity"
             name="quantity"
+            className="add-item"
             value={formData.quantity}
-            onChange={handleChange}
+            onChange={e => setQuantity(e.target.value)}
             placeholder="quantity..."
           />
           <label for="destroyed_items">Destroyed items</label>
@@ -77,36 +95,41 @@ function AddProduct({ data, setData }) {
             type="number"
             id="destroyed_items"
             name="destroyed_items"
+            className="add-item"
             value={formData.destroyed_items}
-            onChange={handleChange}
+            onChange={e => setDestroyedItems(e.target.value)}
             placeholder="destroyed items..."
           />
           <label for="status">Status of item</label>
-          <input
-            type="text"
-            id="status"
-            name="status_of_item"
-            value={formData.status_of_item}
-            onChange={handleChange}
-            placeholder="status of Item..."
-          />
-          <label for="status">Buying price</label>
+
+          <select className="add-item" value={formData.status_of_item} onChange={e => setStatus(e.target.value)}>
+          {options.map(option => (
+            <option
+              id="status"
+              key={option.value}
+              value={option.value}
+              >{option.text}
+            </option>))}
+          </select>
+          <label for="status">Buying price(Kshs.)</label>
           <input
             type="number"
             id="price"
             name="buying_price"
+            className="add-item"
             value={formData.buying_price}
-            onChange={handleChange}
+            onChange={e => setBuyingPrice(e.target.value)}
             placeholder="buying price..."
           />
 
-          <label for="status">Selling Price</label>
+          <label for="status">Selling Price(Kshs.)</label>
           <input
             type="number"
             id="price"
             name="selling_price"
+            className="add-item"
             value={formData.selling_price}
-            onChange={handleChange}
+            onChange={e => setSellingPrice(e.target.value)}
             placeholder="selling price..."
           />
 
@@ -115,8 +138,9 @@ function AddProduct({ data, setData }) {
             type="text"
             id="img"
             name="image"
+            className="add-item"
             value={formData.image}
-            onChange={handleChange}
+            onChange={e => setImage(e.target.value)}
             placeholder="image.."
           />
 
@@ -125,14 +149,18 @@ function AddProduct({ data, setData }) {
             type="number"
             id="user"
             name="user_id"
+            className="add-item"
             value={formData.user_id}
-            onChange={handleChange}
+            onChange={e => setId(e.target.value)}
             placeholder="user_id
           .."
           />
           <input type="submit" value="Submit" />
         </form>
       </div>
+      <div className="clerk-2">
+            <Link to="/productinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
+     </div>
     </>
   );
 }

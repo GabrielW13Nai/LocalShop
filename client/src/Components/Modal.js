@@ -1,15 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
+
 // import { IoSaveSharp} from 'react-icons/io5'
 
 export const Modal = ( {closeModal, defaultValue, onSubmit}) => {
 
-    const [formObj, setFormObj] = useState(
-       defaultValue || {
-        id:"",
+
+
+    const[obj, setObj] = useState(defaultValue || {
+        id: "",
         name: "",
         email: "",
         phone_number: ""
     })
+
+    // const id = user.id
+    // const[name, setName]= useState(user.name)
+    // const[email, setEmail]= useState(user.email)
+    // const[phone_number, setPhone]= useState(user.phone_number)
+
+    // const obj = {
+    //     name,
+    //     email,
+    //     phone_number,
+    // }
 
     // const [id, setId] = useState("")
 
@@ -28,8 +41,8 @@ export const Modal = ( {closeModal, defaultValue, onSubmit}) => {
 
     const handleChange = e => {
         e.preventDefault();
-        setFormObj({...formObj, [e.target.name]: e.target.value});
-        console.log(formObj);
+        setObj({...obj, [e.target.name]: e.target.value});
+        console.log(obj);
     }
 
     const handleSubmit=(id) => {
@@ -39,35 +52,38 @@ export const Modal = ( {closeModal, defaultValue, onSubmit}) => {
             headers:{
                "Content-type":"application/json"
             },
-            body: JSON.stringify(formObj)
+            body: JSON.stringify(obj)
             })
             .then(res => res.json())
             .then(
-            console.log(formObj));
-            // setId(id)
-            onSubmit(formObj);
+            console.log(obj));
+            // setId(defaultValue.id)
+            onSubmit(obj);
     }
 
   return (
     <div className='modal-container' onClick={(e)=>{
-        if (e.target.className === "modal-container") closeModal()}}>
+        if (e.target.className === "modal-container") closeModal()
+        // setObj(obj)
+        }}>
+
         <div className='modal'>
             <form >
             <div className='form-edit'>
                     <label htmlFor='Clerk Id'>Clerk Id</label>
-                    <input placeholder='Id' name='name' value={formObj.id} readOnly/>
+                    <input placeholder='Id' name='name' value={obj.id} readOnly/>
                 </div>
                 <div className='form-edit'>
                     <label htmlFor='Clerk Name'>Clerk Name</label>
-                    <input placeholder='Name' value={formObj.name} onChange={handleChange}  name='name'/>
+                    <input placeholder='Name' value={obj.name} onChange={handleChange}/>
                 </div>
                 <div className='form-edit'>
                     <label htmlFor='Email'>Clerk Email</label>
-                    <input placeholder='Email Address' value={formObj.email} onChange={handleChange} />
+                    <input placeholder='Email Address' value={obj.email} onChange={handleChange} />
                 </div>
                 <div className='form-edit'>
                     <label htmlFor='Phone Number'>Phone Number</label>
-                    <input placeholder='Phone' value={formObj.phone_number} onChange={handleChange}/>
+                    <input placeholder='Phone' value={obj.phone_number} onChange={handleChange}/>
                 </div>
                 {/* <div className='form-edit'>
                     <label htmlFor='Upload image'>Update image here</label>
