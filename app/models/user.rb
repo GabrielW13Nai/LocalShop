@@ -6,4 +6,11 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, presence: true
 
+  before_create :generate_activation_token
+
+  private
+
+  def generate_activation_token
+    self.activation_token = SecureRandom.urlsafe_base64
+  end
 end

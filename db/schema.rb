@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_081231) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_174310) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "quantity"
@@ -43,6 +43,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_081231) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "activation_token"
+    t.boolean "activated"
+    t.index ["activation_token"], name: "index_users_on_activation_token"
   end
 
   add_foreign_key "items", "users"
