@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "chart.js": "^4.3.0",
+    "react-chartjs-2": "^5.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^5.3.4",
     "recharts": "^2.7.2"

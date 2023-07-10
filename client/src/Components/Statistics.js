@@ -6,13 +6,25 @@ function Statistics(){
             <div className="clerk-div-3">
                 <div className="button-clerk">
                 <Link to="/chart">
-                    <img rounded src="https://cdn-icons-png.flaticon.com/512/9478/9478631.png"
+                    <img rounded src="https://marvel-b1-cdn.bc0a.com/f00000000094873/www.purolator.com/sites/default/files/styles/cta/public/images/2019-10/1-boxes-courier.jpg?itok=0HWmCTSJ"
                     className="img-clerk-display"
                     alt="Not found"
                     width="400"
                     height="400"
                     /></Link><br></br>
-                    <label className="text-clerk-add"> CHECK CURRENT STATUS</label>
+                    <label className="text-clerk-add"> ITEM STOCK VS LOSS COMPARISON</label>
+                </div>
+            </div>
+            <div className="clerk-div-3">
+                <div className="button-clerk">
+                <Link to="/chartprice">
+                    <img rounded src="https://www.accru.com/wp-content/uploads/2021/04/How-to-communicate-a-price-increase.jpg"
+                    className="img-clerk-display"
+                    alt="Not found"
+                    width="400"
+                    height="400"
+                    /></Link><br></br>
+                    <label className="text-clerk-add"> PRICE COMPARISON</label>
                 </div>
             </div>
         </>

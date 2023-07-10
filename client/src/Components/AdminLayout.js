@@ -15,6 +15,8 @@ import ItemCollection from "./ItemCollection";
 import Paid from './Paid';
 import Report from './Report';
 import Chart from "./Chart";
+import ChartPrice from "./ChartPrice";
+
 // import UserContextProvider from "../Context/UserContext";
 // import { Modal } from "./Modal";
 
@@ -69,6 +71,8 @@ function AdminLayout(){
                 <Route exact path='/paid'><Paid /></Route>
                 <Route exact path='/report'><Report /></Route>
                 <Route exact path='/chart'><Chart /></Route>
+                <Route exact path='/chartprice'><ChartPrice /></Route>
+
 
 
             </Switch>

@@ -1,4 +1,5 @@
-import { React, useContext} from 'react'
+import { React, useEffect, useState } from 'react'
+import { Link } from "react-router-dom";
 import {
     Chart as ChartJS,
     BarElement,
@@ -8,7 +9,6 @@ import {
     Legend
 } from 'chart.js';
 
-import { UserContext } from './UserContext'
 
 import { Bar } from 'react-chartjs-2'
 
@@ -22,27 +22,73 @@ ChartJS.register(
 
 const Chart = () => {
 
-    const {users} = useContext(UserContext)
+const [items, setItem] = useState([]);
+  useEffect(function () {
+    fetch("/items")
+      .then((response) => response.json())
+      .then((data) => {
+        setItem(data);
+      });
+  }, []);
+
+  const damagedGoods = ()=>{
+    return items.map((item) =>{
+        return item.destroyed_items
+    })
+  }
+  const labelGoods = ()=>{
+    return items.map((item) =>{
+        return item.name
+    })
+  }
+  const restored = ()=>{
+    return items.map((item) =>{
+        return item.quantity
+    })
+  }
+
+
+
 
     const data = {
-        labels: ['Number of items', 'Damaged goods'],
+        labels: labelGoods(),
         datasets: [
-            {label: "blank",
-            data: {users},
+            {label: "Destroyed items",
+            data: damagedGoods(),
+            backgroundColor: 'aqua',
             borderColor: 'black',
-            boderWidth: 1
-        }
+            borderWidth: 1,
+        },
+        {label: "Stock",
+            data: restored(),
+            backgroundColor: 'green',
+            borderColor: 'black',
+            borderWidth: 1,
+        },
+
         ]
     }
 
-    const options
+    const options={
+
+    }
 
 
   return (
     <div>
         <Bar
+        style={
+            {padding: '20px',
+            maxWidth: '65%',
+            marginLeft: '50vh'}
+
+        }
         data={data} options={options}
-        > </Bar>
+        > </Bar><br></br><br></br><br></br>
+
+        <div className="clerk-2">
+            <Link to="/statistics"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
+        </div>
 
     </div>
   )

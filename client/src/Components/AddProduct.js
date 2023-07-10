@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 function AddProduct({ data, setData }) {
   const options = [
-    {value: "Paid", text: "Paid"},
-    {value: "Unpaid",text: "Unpaid"}
+    {value: "active", text: "active"},
+    {value: "inactive",text: "inactive"}
 ]
   const[name, setName] = useState("")
   const[quantity, setQuantity] = useState("")

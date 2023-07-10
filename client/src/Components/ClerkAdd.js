@@ -21,22 +21,22 @@ function ClerkAdd(){
     }
     , [])
 
-    const[role_id, setId]= useState()
+    const[role, setRole]= useState()
 
 
 
     useEffect(()=> {
         users.map(user =>{
-             const name = user.role.name;
-             if (name!== "Clerk")return null;
+             const name = user.role;
+             if (name!== "clerk")return null;
                 return (
-                    setId(user.role_id)
+                    setRole(user.role)
                     )
         }
                 )
 
     }, [users])
-    console.log(role_id)
+    console.log(role)
 
 
 
@@ -56,11 +56,11 @@ function ClerkAdd(){
         password,
         phone_number,
         user_image,
-        role_id
+        role
     }
 
     const validation =() => {
-        if (clerk.name && clerk.email && clerk.password && clerk.phone_number && clerk.user_image && clerk.role_id ) {
+        if (clerk.name && clerk.email && clerk.password && clerk.phone_number && clerk.user_image && clerk.role ) {
             setError("")
             return true;
         } else {
@@ -146,7 +146,7 @@ function ClerkAdd(){
                     <input
                         type="hidden"
                         className="textbox-clerk"
-                        value={"clerk"}
+                        value={clerk.role}
                     />
 
                     {error && <div className="error">{`Please ensure the following input fields are filled: ${error}`}</div>}<br></br>
