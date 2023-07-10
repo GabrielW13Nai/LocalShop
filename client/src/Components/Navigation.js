@@ -21,9 +21,9 @@ function Navigation(){
                 {/* <br></br>
                 <br></br>
                 <br></br> */}
+                <Link to="/productinfo"><button className="btn-dashboard" ><Inventory2OutlinedIcon />  &nbsp; &nbsp; &nbsp; &nbsp; PRODUCT INFORMATION</button></Link><br></br>
                 <Link to="/statistics"><button className="btn-dashboard"><BarChartOutlinedIcon /> &nbsp; &nbsp; &nbsp; &nbsp; STATISTICS</button></Link><br></br>
                 <Link to="/paymentstatus"><button className="btn-dashboard"><PaymentOutlinedIcon /> &nbsp; &nbsp; &nbsp; &nbsp;PAYMENT STATUS </button></Link><br></br>
-                <Link to="/productinfo"><button className="btn-dashboard" ><Inventory2OutlinedIcon />  &nbsp; &nbsp; &nbsp; &nbsp; PRODUCT INFORMATION</button></Link><br></br>
                 <Link to="/clerkinfo"><button className="btn-dashboard">  <Person3OutlinedIcon />&nbsp; &nbsp; &nbsp; &nbsp; CLERK INFORMATION</button></Link><br></br>
                 <Link to="/queryitems"><button className="btn-dashboard">VIEW INDIVIDUAL ITEM HERE &rarr;</button></Link><br></br>
             </div>
