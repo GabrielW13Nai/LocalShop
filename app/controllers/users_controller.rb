@@ -41,15 +41,15 @@ class UsersController < ApplicationController
       end
       
 
-      def send_activation_email
-                user = User.find(params[:admin_id])
-                if user.role == 'admin'
-                send_activation_email_to_admin(user)
-                render json: { message: 'Activation email sent successfully' }, status: :ok
-                else
-                render json: { error: 'User is not an admin' }, status: :unprocessable_entity
-                end
-      end
+  def send_activation_email
+    user = User.find(params[:admin_id])
+    if user.role == 'admin'
+     send_activation_email_to_admin(user)
+     render json: { message: 'Activation email sent successfully' }, status: :ok
+      else
+       render json: { error: 'User is not an admin' }, status: :unprocessable_entity
+   end
+  end
   
   private
 
