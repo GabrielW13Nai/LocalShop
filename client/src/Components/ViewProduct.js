@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { Link } from "react-router-dom";
 
+
 function ViewProduct() {
   const [data, setData] = useState([]);
   useEffect(function () {

@@ -742,3 +742,24 @@ input[type=number], select {
 .add-item{
   font-size: 20px;
 }
+
+.signup-container {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat; */
+  margin-top: 10vh;
+}
+
+.login-link{
+  margin-right: 36vh;
+}
+.login-link-2{
+  margin-right: -10vh;
+  font-size: 1.5rem;
+}
+/* .login-signup{
+  margin-left: 200vh;
+} */

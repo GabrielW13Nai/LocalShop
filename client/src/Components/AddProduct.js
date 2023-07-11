@@ -66,6 +66,7 @@ function AddProduct({ data, setData }) {
 
   return (
     <>
+
       <h3>ADD ITEM</h3>
 
       <div className="new-product">

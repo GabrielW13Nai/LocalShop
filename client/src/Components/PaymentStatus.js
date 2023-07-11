@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
+import Navigation from './Navigation';
 
 function PaymentStatus(){
     return(
         <>
+        <Header />
+        <Navigation />
             <div className="clerk-div-3">
                 <div className="button-clerk">
                 <Link to="/paid">

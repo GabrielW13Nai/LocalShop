@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     # Dashboard route
-    get '/dashboard', to: 'dashboard#index'
+    get '/admin', to: 'dashboard#index'
 
     # Admin-specific routes
     resources :admins, only: [:index, :show, :create, :update, :destroy]

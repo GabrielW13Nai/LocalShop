@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   height: 100vh;;
+
+  padding: 10px;
 }
 
 .login-page h2 {
@@ -13,6 +15,13 @@
 .login-page form {
   display: flex;
   flex-direction: column;
+  border-radius: 1px black solid;
+  border: 1px black solid;
+  padding: 40px;
+}
+.login-link{
+  font-size: 22px;
+  margin-left: 10vh;
 }
 
 .login-page input,
@@ -21,6 +30,8 @@
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  height: 40px;
+  width:300px;
 }
 
 .login-page button {
@@ -30,6 +41,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .login-page button:hover {
