@@ -21,18 +21,22 @@ const Login = () => {
     setErrorMessages({});
     if (!username) {
       setErrorMessages((prevState) => ({ ...prevState, username: 'Username is required.' }));
-    }
+    }else
     if (!password) {
       setErrorMessages((prevState) => ({ ...prevState, password: 'Password is required.' }));
-    }
+    }else
     if (!role) {
       setErrorMessages((prevState) => ({ ...prevState, role: 'Role is required.' }));
     }
 
     // Perform login logic if form inputs are valid
-    if (username && password && role) {
+    if (username && password && role==='admin') {
       // handle the login logic here, such as making API calls to your Rails backend.
       history.push("/adminlayout")
+    }else
+    if (username && password && role==='clerk') {
+      // handle the login logic here, such as making API calls to your Rails backend.
+      history.push("/clerklayout")
     }
   };
 
@@ -68,7 +72,7 @@ const Login = () => {
       </form> <br></br>
       <div className='login-signup'>
       <label  className="login-link-2"> Haven't signed up yet? </label>
-      <Link to="/" className="login-link">
+      <Link to="/signup" className="login-link">
             Click Here &rarr;
           </Link>
 

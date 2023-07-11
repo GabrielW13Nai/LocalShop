@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+
 // import { IoSaveSharp} from 'react-icons/io5'
 
 export const ModalReport = ( {item, closeModal}) => {
@@ -18,6 +19,7 @@ export const ModalReport = ( {item, closeModal}) => {
     //     }
 
   return (
+    <>
     <div className='modal-container-2' onClick={(e)=>{
         if (e.target.className === "modal-container-2") closeModal()
         setValue(value)
@@ -71,6 +73,8 @@ export const ModalReport = ( {item, closeModal}) => {
             </form>
         </div>
     </div>
+    </>
+
   )
 }
 

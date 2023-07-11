@@ -1,8 +1,6 @@
 import { React } from 'react'
 import { BsFillTrashFill, BsFillPencilFill } from 'react-icons/bs'
 
-
-
 export const Table = ( {deleteRow, editRow, users} ) => {
 //     const [users, setUsers] = useState([])
 
@@ -15,6 +13,7 @@ export const Table = ( {deleteRow, editRow, users} ) => {
 // },[])
   return (
     <>
+
         <div className='tableclerks'>
         <thead >
             <tr className='label-table'>

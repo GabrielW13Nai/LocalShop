@@ -1,6 +1,9 @@
 import { React, useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
+import Navigation from './Navigation';
+import Header from "./Header";
+
 // import { BsFillTrashFill, BsFillPencilFill } from 'react-icons/bs'
 
 
@@ -54,6 +57,8 @@ const handleReverse = (idx, good) => {
 
   return (
     <>
+     <Header />
+      <Navigation />
         <div className='tableitems'>
         <thead >
             <tr className='label-table'>
@@ -101,7 +106,7 @@ const handleReverse = (idx, good) => {
 
     </div>
     <br></br> <br></br>
-    <div className="clerk-2">
+    <div className="clerk-2-btn">
             <Link to="/paymentstatus"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
      </div>
 

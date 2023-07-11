@@ -279,6 +279,8 @@ a{
   max-height: 20vh;
   min-width: 30vh;
   min-height: 30vh;
+  display: block;
+  margin-top: -130vh;
 
   /* margin-left: 25vh; */
 }
@@ -380,6 +382,7 @@ a{
   max-width: 80%;
   white-space: nowrap;
   overflow-x: auto;
+  margin-top: -100vh;
   position: sticky;
 }
 .tableclerks thead {
@@ -582,22 +585,22 @@ input[type=number], select {
   font-size: large;
   font-weight: bold;
   font-style: italic;
-
-
-
-
-
-
 }
 
-
+.icons{
+  margin-top: -138vh;
+}
+.cards{
+  margin-top: -110vh;
+  display: block;
+}
 
 .tableitems{
   margin-left: 40vh;
   color: #222;
   font-size: 20px;
   font-family:'Oswald', sans-serif;
-  margin-top: 30vh;
+  margin-top: -118vh;
   display: block;
   overflow: hidden;
   table-layout: auto;
@@ -646,7 +649,7 @@ input[type=number], select {
   color: #222;
   font-size: 20px;
   font-family:'Oswald', sans-serif;
-  margin-top: 30vh;
+  margin-top: -118vh;
   display: block;
   overflow: hidden;
   table-layout: auto;
@@ -763,3 +766,32 @@ input[type=number], select {
 /* .login-signup{
   margin-left: 200vh;
 } */
+
+.clerk-information{
+  display: block;
+  margin-top: -118vh;
+}
+.clerk-2{
+  margin-top: -118vh;
+}
+.clerk-2-btn{
+  margin-bottom: -20vh;
+}
+.new-product{
+  display: block;
+  margin-top: -120vh;
+}
+
+.clerk-div-4{
+  display: inline-block;
+  max-height: 20vh;
+  min-width: 30vh;
+  min-height: 30vh;
+  display: block;
+  margin-top: -80vh;
+}
+
+.chart{
+  display: block;
+  margin-top: -120vh;
+}

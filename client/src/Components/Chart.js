@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
+import Navigation from './Navigation';
+import Header from "./Header";
 import {
     Chart as ChartJS,
     BarElement,
@@ -75,22 +77,27 @@ const [items, setItem] = useState([]);
 
 
   return (
-    <div>
-        <Bar
-        style={
-            {padding: '20px',
-            maxWidth: '65%',
-            marginLeft: '50vh'}
+    <>
+    <Header />
+    <Navigation />
+    <div className='chart'>
+          <Bar
+          style={
+              {padding: '20px',
+              maxWidth: '65%',
+              marginLeft: '50vh'}
 
-        }
-        data={data} options={options}
-        > </Bar><br></br><br></br><br></br>
+          }
+          data={data} options={options}
+          > </Bar><br></br><br></br><br></br>
 
-        <div className="clerk-2">
-            <Link to="/statistics"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
-        </div>
+          <div className="clerk-2-btn">
+              <Link to="/statistics"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
+          </div>
 
-    </div>
+      </div>
+    </>
+
   )
 }
 

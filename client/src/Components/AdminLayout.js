@@ -18,8 +18,8 @@ import Chart from "./Chart";
 import ChartPrice from "./ChartPrice";
 import Header from "./Header";
 
-// import UserContextProvider from "../Context/UserContext";
-// import { Modal } from "./Modal";
+// import UserContextProvider from "./UserContext";
+
 
 
 function AdminLayout(){
@@ -27,9 +27,6 @@ function AdminLayout(){
         <>
 
     <div className="page-container">
-    <div className="first-upper-container">
-
-    </div>
 
         <Header />
         <div className="second-upper-container">
@@ -57,11 +54,9 @@ function AdminLayout(){
                 <Route exact path='/chart'><Chart /></Route>
                 <Route exact path='/chartprice'><ChartPrice /></Route>
 
-
-
             </Switch>
             {/* <UserContextProvider>
-                <Modal />
+                <ClerkEdit />
             </UserContextProvider> */}
         </div>
         </div>

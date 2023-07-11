@@ -1,9 +1,9 @@
-
+import React from "react";
 import { useHistory } from "react-router-dom";
 import Navigation from './Navigation';
 import Header from "./Header";
 
-function ProductInfo(){
+function ClerkProductInfo(){
 
     const history = useHistory();
 
@@ -31,5 +31,5 @@ function ProductInfo(){
         </div>
       </>)
 }
-export default ProductInfo;
+export default ClerkProductInfo;
 

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Navigation from './Navigation';
+import Header from "./Header";
 
 
 function ClerkAdd(){
@@ -102,6 +104,8 @@ function ClerkAdd(){
 
     return (
         <>
+        <Header />
+        <Navigation />
 
         <div className="clerk-information">
             <div className="clerk-add">
@@ -156,18 +160,12 @@ function ClerkAdd(){
                     <div className="buttons">
                         <button className="btn-clerk" type="submit">Add clerk</button>
                     </div>
-
-
-
                </form>
             </div>
-
         </div>
-
-        <div className="clerk-2">
+        <div className="clerk-2-btn">
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
             </div>
-
         </>
     )
 

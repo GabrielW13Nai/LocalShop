@@ -2,6 +2,8 @@ import { React, useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import { ModalReport } from './ModalReport'
+import Navigation from './Navigation';
+import Header from "./Header";
 // import { BsFillTrashFill, BsFillPencilFill } from 'react-icons/bs'
 
 
@@ -37,6 +39,8 @@ const handleStatus = (idx) => {
 
   return (
     <>
+      <Header />
+      <Navigation />
         <div className='tablequery'>
         <thead >
             <tr className='label-table'>
@@ -75,7 +79,7 @@ const handleStatus = (idx) => {
 
     </div>
     <br></br> <br></br>
-    <div className="clerk-2">
+    <div className="clerk-2-btn">
             <Link to="/queryitems"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
       </div>
 

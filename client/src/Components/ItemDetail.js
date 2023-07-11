@@ -15,6 +15,7 @@ function ItemDetail({ item}) {
   return (
     <>
 
+
     <div className='card' onClick={handleClick}>
        <p>{item.name}</p>
        <img className="image"src={item.image} alt="not found" width="100" height="100"/>

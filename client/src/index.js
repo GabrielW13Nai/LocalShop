@@ -20,7 +20,7 @@ root.render(
         {/* <SignUp /> */}
       {/* <Login /> */}
       <App />
-      </UserContextProvider>
+    </UserContextProvider>
 
 
     <Switch>

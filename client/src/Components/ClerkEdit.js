@@ -1,10 +1,11 @@
-import{ React, useContext } from "react";
+import{ React } from "react";
 import{ useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Table } from "./Table";
 import { Modal } from './Modal'
-import { UserContext } from './UserContext'
-
+// import { UserContext } from './UserContext'
+import Navigation from './Navigation';
+import Header from "./Header";
 
 
 
@@ -13,10 +14,10 @@ function ClerkEdit(){
     const[modal, setModal] = useState(false)
     const[clerk, setClerk]= useState([])
     const[rowEdit, setRowEdit]= useState(-1)
-    // const[id, setId] = useState("")
 
 
-    const {users} = useContext(UserContext)
+
+    // const {users} = useContext(UserContext)
 
 
 
@@ -71,26 +72,21 @@ function ClerkEdit(){
 
     return (
         <>
-         <div className="clerk-2">
+        <Header />
+        <Navigation />
+         <div className="clerk-2-btn">
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
         </div>
 
-
-
-        <Table deleteRow={handleDelete} editRow={handleEdit} users={users}/>
+        <Table deleteRow={handleDelete} editRow={handleEdit} users={clerk}/>
         { modal && <Modal
             onSubmit={handleSubmit}
             closeModal={()=>setModal(false)}
-            defaultValue={rowEdit !== null && users[rowEdit-1]}
+            defaultValue={rowEdit !== null && clerk[rowEdit-1]}
 
             /> }
 
             </>)
-
-
-
-
-
         // {<button className="btn-primary" onClick={()=> setModal(true)}>Open</button> }
 
 

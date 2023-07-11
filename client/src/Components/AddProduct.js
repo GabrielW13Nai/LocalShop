@@ -1,5 +1,7 @@
 import React, { useState} from "react";
 import { Link } from "react-router-dom";
+import Navigation from './Navigation';
+import Header from "./Header";
 // import { useLocation } from "react-router-dom";
 
 function AddProduct({ data, setData }) {
@@ -67,9 +69,13 @@ function AddProduct({ data, setData }) {
   return (
     <>
 
-      <h3>ADD ITEM</h3>
+  	  <Header />
+      <Navigation />
+
+
 
       <div className="new-product">
+      <h3>ADD ITEM</h3>
         <form onSubmit={handleSubmit} action="post">
           <label for="name">Name</label>
           <input
@@ -158,8 +164,8 @@ function AddProduct({ data, setData }) {
           />
           <input type="submit" value="Submit" />
         </form>
-      </div>
-      <div className="clerk-2">
+      </div><br></br>
+      <div className="clerk-2-btn">
             <Link to="/productinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
      </div>
     </>

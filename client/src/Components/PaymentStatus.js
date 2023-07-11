@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "./Header";
 import Navigation from './Navigation';
+import Header from "./Header";
 
 function PaymentStatus(){
     return(
         <>
-        <Header />
-        <Navigation />
+          <Header />
+          <Navigation />
             <div className="clerk-div-3">
                 <div className="button-clerk">
                 <Link to="/paid">
@@ -19,6 +19,7 @@ function PaymentStatus(){
                     /></Link><br></br>
                     <label className="text-clerk-add"> CHECK CURRENT STATUS</label>
                 </div>
+
             </div>
         </>
     )

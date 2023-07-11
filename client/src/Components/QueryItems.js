@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navigation from './Navigation';
+import Header from "./Header";
 
 function QueryItems(){
     return(
         <>
+        <Header />
+        <Navigation />
             <div className="clerk-div-3">
                 <div className="button-clerk">
                 <Link to="/report">

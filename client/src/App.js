@@ -19,7 +19,9 @@ import Paid from './Components/Paid';
 import Report from './Components/Report';
 import Chart from "./Components/Chart";
 import ChartPrice from "./Components/ChartPrice";
-
+import ClerkLayout from './Components/ClerkLayout';
+import Dashboard from './Components/Dashboard';
+import ClerkProductInfo from './Components/ClerkProductInfo';
 
 
 
@@ -30,13 +32,16 @@ function App() {
     <>
     <div className="App">
       {/* <h1>Local-Shop</h1> */}
+
+
       <Switch>
 
-      {/* <Route exact path='/dashboard'><Dashboard /></Route> */}
+      <Route exact path='/dashboard'><Dashboard /></Route>
       <Route exact path='/login'><Login /></Route>
       <Route exact path='/signup'><SignUp /></Route>
-      <Route exact path='/'><SignUp /></Route>
+      <Route exact path='/'><Login /></Route>
       <Route exact path='/adminlayout'><AdminLayout /></Route>
+      <Route exact path='/clerklayout'><ClerkLayout/></Route>
       <Route exact path='/statistics'><Statistics  /></Route>
       <Route exact path='/paymentstatus'><PaymentStatus /></Route>
       <Route exact path='/productinfo'><ProductInfo /></Route>
@@ -52,6 +57,7 @@ function App() {
       <Route exact path='/report'><Report /></Route>
       <Route exact path='/chart'><Chart /></Route>
       <Route exact path='/chartprice'><ChartPrice /></Route>
+      <Route exact path='/clerkproductinfo'><ClerkProductInfo /></Route>
 
 
 

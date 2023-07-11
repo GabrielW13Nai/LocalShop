@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Navigation from './Navigation';
+import Header from "./Header";
 // import ClerkRemove from './ClerkRemove';
 
 function ClerkDisplay(){
@@ -29,6 +31,8 @@ function ClerkDisplay(){
 
     return(
         <>
+        <Header />
+        <Navigation />
         <div className="clerk-2">
             <Link to="/clerkinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
         </div>

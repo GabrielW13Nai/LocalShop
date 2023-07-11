@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { Link } from "react-router-dom";
+import Navigation from './Navigation';
+import Header from "./Header";
 
 
 function ViewProduct() {
@@ -19,10 +21,12 @@ function ViewProduct() {
   });
   return (
     <>
-  <div className="cards">{items}</div>;
-    <div className="clerk-2">
-      <Link to="/productinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
-    </div>
+    <Header />
+    <Navigation />
+    <div className="cards">{items}</div>;
+      <div className="clerk-2-btn">
+        <Link to="/productinfo"><button className="clerk-btn-back"> &larr; BACK </button></Link><br></br>
+      </div>
   </>
   )
 
