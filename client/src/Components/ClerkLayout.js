@@ -29,7 +29,6 @@ const ClerkLayout = () => {
                 <Route exact path='/addproducts'><AddProduct /></Route>
                 <Route exact path='/itemcollection'><ItemCollection /></Route>
 
-
             </Switch>
             {/* <UserContextProvider>
                 <ClerkEdit />
