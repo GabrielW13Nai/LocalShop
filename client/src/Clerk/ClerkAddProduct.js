@@ -35,7 +35,7 @@ function ClerkAddProduct({ data, setData }) {
   // const location = useLocation();
 
   function handleSubmit(e) {
-    // e.preventDefault();
+    e.preventDefault();
     fetch("/items", {
       method: "POST",
       headers: {
