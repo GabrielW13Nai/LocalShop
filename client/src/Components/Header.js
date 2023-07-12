@@ -18,7 +18,7 @@ import React from 'react'
               height="80"
               className="logo-title" />
           <div className="welcome">
-          <span className="welcome-message">Welcome back, admin</span>
+          <span className="welcome-message">Welcome back</span>
           </div>
 
           </div>

@@ -489,6 +489,15 @@ a{
   justify-content: space-between;
   /* height: 500px; */
 }
+.product-information-2{
+  margin-left: 55%;
+  margin-right:0%;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -2vh;
+  /* height: 500px; */
+}
 .icons{
   height: 30%;
   width: 30%;

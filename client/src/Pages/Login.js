@@ -30,7 +30,11 @@ const Login = () => {
     }
 
     // Perform login logic if form inputs are valid
-    if (username && password && role==='admin') {
+    if (username && password && role==='merchant' ) {
+      // handle the login logic here, such as making API calls to your Rails backend.
+      history.push("/adminlayout")}
+      else
+      if (username && password && role==='admin' ) {
       // handle the login logic here, such as making API calls to your Rails backend.
       history.push("/adminlayout")
     }else

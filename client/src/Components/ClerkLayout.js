@@ -1,10 +1,10 @@
 import React from 'react'
 import Dashboard from './Dashboard';
 import { Switch, Route } from 'react-router-dom';
-import ProductInfo from './ProductInfo';
-import AddProduct from "./AddProduct";
-import ViewProduct from "./ViewProduct";
-import ItemCollection from "./ItemCollection";
+import ClerkProductInfo from './ClerkProductInfo';
+import ClerkAddProduct from '../Clerk/ClerkAddProduct';
+import ClerkViewProduct from '../Clerk/ClerkViewProduct';
+import ClerkItemCollection from '../Clerk/ClerkItemCollection';
 import Header from "./Header";
 
 const ClerkLayout = () => {
@@ -18,22 +18,22 @@ const ClerkLayout = () => {
 
         </div>
 
-    <div className="bodycontainer">
-        <div className="navigation-container">
-        <Dashboard />
-        <div className="routes">
-        <Switch>
+        <div className="bodycontainer">
+            <div className="navigation-container">
+            <Dashboard />
+            <div className="routes">
+            <Switch>
 
-                <Route exact path='/productinfo'><ProductInfo /></Route>
-                <Route exact path='/viewproducts'><ViewProduct /></Route>
-                <Route exact path='/addproducts'><AddProduct /></Route>
-                <Route exact path='/itemcollection'><ItemCollection /></Route>
+                <Route exact path='/clerkproductinfo'><ClerkProductInfo /></Route>
+                <Route exact path='/clerkviewproducts'><ClerkViewProduct /></Route>
+                <Route exact path='/clerkaddproducts'><ClerkAddProduct /></Route>
+                <Route exact path='/clerkitemcollection'><ClerkItemCollection /></Route>
 
             </Switch>
             {/* <UserContextProvider>
                 <ClerkEdit />
             </UserContextProvider> */}
-        </div>
+            </div>
         </div>
     </div>
 

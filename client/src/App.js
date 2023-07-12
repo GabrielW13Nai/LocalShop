@@ -22,7 +22,9 @@ import ChartPrice from "./Components/ChartPrice";
 import ClerkLayout from './Components/ClerkLayout';
 import Dashboard from './Components/Dashboard';
 import ClerkProductInfo from './Components/ClerkProductInfo';
-
+import ClerkAddProduct from './Clerk/ClerkAddProduct';
+import ClerkViewProduct from './Clerk/ClerkViewProduct';
+import ClerkItemCollection from './Clerk/ClerkItemCollection';
 
 
 
@@ -58,6 +60,10 @@ function App() {
       <Route exact path='/chart'><Chart /></Route>
       <Route exact path='/chartprice'><ChartPrice /></Route>
       <Route exact path='/clerkproductinfo'><ClerkProductInfo /></Route>
+      <Route exact path='/clerkproductinfo'><ClerkProductInfo /></Route>
+      <Route exact path='/clerkviewproducts'><ClerkViewProduct /></Route>
+      <Route exact path='/clerkaddproducts'><ClerkAddProduct /></Route>
+      <Route exact path='/clerkitemcollection'><ClerkItemCollection /></Route>
 
 
 
