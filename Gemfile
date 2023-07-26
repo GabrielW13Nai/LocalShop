@@ -33,7 +33,7 @@ gem 'active_model_serializers', '~> 0.10.2'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
-#gem 'rack-cors'
+gem 'rack-cors'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
