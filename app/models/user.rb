@@ -18,14 +18,10 @@ class User < ApplicationRecord
   def role_name_validation
     role_name = role&.name
     return unless role_name
-
-    validate_name_inclusion(role_name)
-  end
-
-  def validate_name_inclusion(keyword)
-    unless name&.downcase&.include?(keyword.downcase)
-      errors.add(:name, "must include '#{keyword.downcase}' for #{role_name} role")
-    end
+end
+def validate_name_inclusion(keyword)
+  unless name&.downcase&.include?(keyword.downcase)
+    errors.add(:name, "must include '#{keyword.downcase}' for #{role_name} role")
   end
 end
 
