@@ -15,6 +15,7 @@ function ClerkAdd(){
 
 
 
+
     useEffect(()=> {
         fetch('/users')
         .then(res=> res.json())
@@ -23,7 +24,7 @@ function ClerkAdd(){
     }
     , [])
 
-    const[role, setRole]= useState()
+    const[role, setRole]= useState("clerk")
 
 
 
@@ -150,7 +151,7 @@ function ClerkAdd(){
                     <input
                         type="hidden"
                         className="textbox-clerk"
-                        value={clerk.role}
+                        defaultValue="clerk"
                     />
 
                     {error && <div className="error">{`Please ensure the following input fields are filled: ${error}`}</div>}<br></br>
