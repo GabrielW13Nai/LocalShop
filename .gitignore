@@ -35,3 +35,5 @@
 /config/master.key
 .ruby_version
 /config/credentials/production.key
+
+/config/credentials/development.key
