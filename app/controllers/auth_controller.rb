@@ -8,7 +8,7 @@ class AuthController < ApplicationController
         name: user.name,
         email: user.email,
         phone_number: user.phone_number,
-        permissions = user.permissions.map{ |permission| permission.alias}
+        permissions: user.permissions.map{ |permission| permission.alias}
       }
       token = JWT: encode(payload, Rails.configuration.jwt["secret"])
 
