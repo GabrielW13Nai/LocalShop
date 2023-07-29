@@ -11,9 +11,9 @@ class AuthController < ApplicationController
         permissions: user.permissions.map{ |permission| permission.alias}
       }
       token = JWT.encode(payload, Rails.configuration.jwt["secret"])
-
       render json: {token: token}
     else
       render json: {error: "Invalid credentials entered"}
     end
+  end
 end
