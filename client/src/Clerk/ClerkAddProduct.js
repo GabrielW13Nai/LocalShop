@@ -5,6 +5,7 @@ import Header from "../Components/Header";
 import Dashboard from "../Components/Dashboard";
 // import { useLocation } from "react-router-dom";
 
+
 function ClerkAddProduct({ data, setData }) {
   const options = [
     {value: "active", text: "active"},
@@ -36,7 +37,7 @@ function ClerkAddProduct({ data, setData }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/items", {
+    fetch("/api/items", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

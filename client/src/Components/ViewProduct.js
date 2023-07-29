@@ -8,7 +8,7 @@ import Header from "./Header";
 function ViewProduct() {
   const [data, setData] = useState([]);
   useEffect(function () {
-    fetch("/items")
+    fetch("/api/items")
       .then((response) => response.json())
       .then((data) => {
         setData(data);

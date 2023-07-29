@@ -9,7 +9,7 @@ function ClerkDisplay(){
     // const[clerks, setClerk]= useState([])
 
     useEffect(()=> {
-        fetch('/users')
+        fetch('/api/users')
         .then(res=> res.json())
         .then((user)=> {setUser(user);
             })

@@ -19,7 +19,7 @@ const Report = () => {
 
 
 useEffect(()=>{
-    fetch(`/items/`)
+    fetch(`/api/items/`)
     .then(res=> res.json())
     .then(item=> {setItems(item);
 

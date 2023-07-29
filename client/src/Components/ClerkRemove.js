@@ -7,7 +7,7 @@ function ClerkRemove({clerkDelete, setClerkDelete, clerk}){
     function handleDelete(id){
         const choice = window.confirm("Are you sure you want to remove this clerk from the system?")
         if (choice){
-            fetch(`/users/${id}`,{method: "DELETE",})
+            fetch(`/api/users/${id}`,{method: "DELETE",})
             .then(res=> res.json())
             .then(()=> {
                 const newClerk = clerkDelete.filter(clerk => clerk.id !== id)

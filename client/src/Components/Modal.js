@@ -47,7 +47,7 @@ export const Modal = ( {closeModal, defaultValue, onSubmit}) => {
 
     const handleSubmit=(id) => {
 
-        fetch(`/users/${id}`,{
+        fetch(`/api/users/${id}`,{
             method: "PATCH",
             headers:{
                "Content-type":"application/json"

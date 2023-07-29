@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :users, only: [:create, :show, :index, :update, :destroy]
+  resources :users, path: '/api/users', only: [:create, :show, :index, :update, :destroy]
 
   resources :items, except: [:new, :edit] do
     collection do
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Clerk-specific routes for CRUD operations on items
-    resources :items, only: [:index, :show, :create, :update, :destroy]
+    resources :items, path: '/api/items', only: [:index, :show, :create, :update, :destroy]
   end
 end
 

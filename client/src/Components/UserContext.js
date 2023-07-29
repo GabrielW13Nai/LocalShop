@@ -7,7 +7,7 @@ const UserContextProvider = (props) => {
 
 
     useEffect(()=> {
-        fetch('/users')
+        fetch('/api/users')
         .then(res=> res.json())
         .then((user)=> {setUser(user);
             console.log(users)

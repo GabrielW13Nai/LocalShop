@@ -35,7 +35,7 @@ function SignUp({ setIsLoggedIn }) {
 
     axios
       .post(
-        '/users',
+        '/api/users',
         { user: { username, email, password } },
         {
           headers: { 'Content-Type': 'application/json' },

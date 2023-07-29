@@ -17,7 +17,7 @@ function ClerkAdd(){
 
 
     useEffect(()=> {
-        fetch('/users')
+        fetch('/api/users')
         .then(res=> res.json())
         .then((user)=> {setUser(user);
             })
@@ -87,7 +87,7 @@ function ClerkAdd(){
         const choice = window.confirm("Are you sure you want to add this clerk to the system?")
         if(choice){
 
-        fetch('/users',{
+        fetch('/api/users',{
             method: "POST",
             headers: {"Content-Type":"application/json"},
             body: JSON.stringify(clerk)})

@@ -35,7 +35,7 @@ function AddProduct({ data, setData }) {
 
   function handleSubmit(e) {
     // e.preventDefault();
-    fetch("/items", {
+    fetch("/api/items", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

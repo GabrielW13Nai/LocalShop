@@ -22,7 +22,7 @@ function ClerkEdit(){
 
 
     useEffect(()=> {
-        fetch('/users')
+        fetch('/api/users')
         .then(res=> res.json())
         .then((user)=> {
             setClerk(user);
@@ -59,7 +59,7 @@ function ClerkEdit(){
 
         const choice = window.confirm("Are you sure you want to remove this clerk from the system?")
         if (choice){
-            fetch(`/users/${id}`,{method: "DELETE",})
+            fetch(`/api/users/${id}`,{method: "DELETE",})
             .then(res=> res.json())
             .then(()=> {
                 const newClerk = clerk.filter(clerk => clerk.id !== id)

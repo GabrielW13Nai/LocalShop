@@ -26,7 +26,7 @@ const Chart = () => {
 
 const [items, setItem] = useState([]);
   useEffect(function () {
-    fetch("/items")
+    fetch('/api/items')
       .then((response) => response.json())
       .then((data) => {
         setItem(data);
