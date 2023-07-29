@@ -3,7 +3,7 @@ class AuthController < ApplicationController
     user = User.find_by(email: params_login[:email])
     if user&.authenticate(params_login[:password])
       # token_expiry = params_login[:remember_me]=="true"? Time.now + (60*60*24*7): Time.now + (60*60)
-      payload = {
+      payload= {
         user_id: user.id,
         name: user.name,
         email: user.email,
